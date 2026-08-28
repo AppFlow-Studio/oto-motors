@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { useDeal } from '@/components/deal-provider'
+import { BrandMark } from '@/components/brand-mark'
 
 const NAV = [
   { label: 'Cars', href: '#marques' },
@@ -14,8 +15,11 @@ const NAV = [
 
 export function Wordmark({ className = '' }: { className?: string }) {
   return (
-    <span className={`font-display tracking-[0.28em] leading-none ${className}`}>
-      OTO <span className="champagne-text">MOTORS</span>
+    <span className={`inline-flex items-center gap-2.5 leading-none ${className}`}>
+      <BrandMark className="h-[1.15em] w-[1.15em] shrink-0" />
+      <span className="font-display tracking-[0.28em]">
+        OTO <span className="champagne-text">MOTORS</span>
+      </span>
     </span>
   )
 }
