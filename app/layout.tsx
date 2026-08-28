@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description:
     'OTO Motors is a private vehicle acquisition house. We find, negotiate, and deliver luxury and exotic cars — leased, financed, or bought outright. Offices in Tribeca, New York and Fort Lauderdale, Florida.',
   generator: 'v0.app',
-  // Icons are provided by the app/icon.svg and app/apple-icon.tsx file conventions.
+  // Icons are provided by the app/icon.png and app/apple-icon.png file conventions.
 }
 
 export const viewport: Viewport = {
