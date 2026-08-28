@@ -6,6 +6,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure the brand logo ships inside the /api/build-deal serverless
+  // function so it can be embedded (cid:) into transactional emails.
+  outputFileTracingIncludes: {
+    '/api/build-deal': ['./public/logo.png'],
+  },
   async headers() {
     return [
       {

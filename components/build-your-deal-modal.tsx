@@ -132,6 +132,9 @@ export function BuildYourDealModal({ open, onClose }: { open: boolean; onClose: 
   const [step, setStep] = useState(1)
   const [answers, setAnswers] = useState<Answers>(EMPTY)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [company, setCompany] = useState('') // honeypot — real users leave blank
 
   const set = <K extends keyof Answers>(key: K, value: Answers[K]) =>
     setAnswers((prev) => ({ ...prev, [key]: value }))
@@ -155,6 +158,9 @@ export function BuildYourDealModal({ open, onClose }: { open: boolean; onClose: 
         setStep(1)
         setAnswers(EMPTY)
         setSubmitted(false)
+        setSubmitting(false)
+        setError(null)
+        setCompany('')
       }, 300)
       return () => clearTimeout(t)
     }
@@ -185,10 +191,35 @@ export function BuildYourDealModal({ open, onClose }: { open: boolean; onClose: 
     }
   })()
 
-  const submit = () => {
-    // POST endpoint goes here — e.g. await fetch('/api/leads', { method: 'POST', body: JSON.stringify(answers) })
-    console.log('[v0] Build Your Deal submission:', answers)
-    setSubmitted(true)
+  const submit = async () => {
+    if (submitting) return
+    setSubmitting(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/build-deal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...answers, company }),
+      })
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean
+        error?: string
+      }
+      if (!res.ok || !data.ok) {
+        throw new Error(
+          data.error || 'We couldn’t send that. Please try again or call us.',
+        )
+      }
+      setSubmitted(true)
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'We couldn’t send that. Please try again or call us.',
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -454,6 +485,17 @@ export function BuildYourDealModal({ open, onClose }: { open: boolean; onClose: 
                         onChange={(e) => set('email', e.target.value)}
                       />
                     </div>
+                    {/* honeypot — hidden from humans, catches bots */}
+                    <input
+                      type="text"
+                      name="company"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                    />
                     <p className="eyebrow text-muted-foreground leading-[1.8] sm:col-span-2">
                       No credit pull. No payment estimated by a form.
                     </p>
@@ -465,23 +507,55 @@ export function BuildYourDealModal({ open, onClose }: { open: boolean; onClose: 
         </div>
 
         {!submitted && (
-          <div className="flex items-center justify-between gap-4 border-t border-hairline px-6 py-5 md:px-10">
-            <button
-              type="button"
-              onClick={() => setStep((s) => Math.max(1, s - 1))}
-              disabled={step === 1}
-              className="eyebrow text-muted-foreground transition-colors duration-200 hover:text-foreground disabled:opacity-30"
-            >
-              ← Back
-            </button>
-            <button
-              type="button"
-              disabled={!canAdvance}
-              onClick={() => (step === TOTAL_STEPS ? submit() : setStep((s) => s + 1))}
-              className="champagne-gradient eyebrow px-8 py-3.5 text-[#0a0a0c] transition-opacity duration-200 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-25"
-            >
-              {step === TOTAL_STEPS ? 'Send it →' : 'Continue →'}
-            </button>
+          <div className="border-t border-hairline">
+            {error && (
+              <div
+                role="alert"
+                className="flex items-start gap-3 border-b border-oxblood/40 bg-oxblood/15 px-6 py-4 md:px-10"
+              >
+                <span
+                  className="mt-1.5 h-1 w-1 shrink-0 bg-oxblood"
+                  aria-hidden="true"
+                />
+                <p className="text-[13px] leading-relaxed text-foreground/90">
+                  {error}{' '}
+                  <a
+                    href="tel:+12125550142"
+                    className="text-champagne underline-offset-2 hover:underline"
+                  >
+                    Or call +1 (212) 555-0142
+                  </a>
+                </p>
+              </div>
+            )}
+            <div className="flex items-center justify-between gap-4 px-6 py-5 md:px-10">
+              <button
+                type="button"
+                onClick={() => setStep((s) => Math.max(1, s - 1))}
+                disabled={step === 1 || submitting}
+                className="eyebrow text-muted-foreground transition-colors duration-200 hover:text-foreground disabled:opacity-30"
+              >
+                ← Back
+              </button>
+              <button
+                type="button"
+                disabled={!canAdvance || submitting}
+                onClick={() => (step === TOTAL_STEPS ? submit() : setStep((s) => s + 1))}
+                className="champagne-gradient eyebrow inline-flex items-center gap-2.5 px-8 py-3.5 text-[#0a0a0c] transition-opacity duration-200 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-25"
+              >
+                {submitting && (
+                  <span
+                    className="h-3 w-3 animate-spin rounded-full border border-[#0a0a0c]/30 border-t-[#0a0a0c]"
+                    aria-hidden="true"
+                  />
+                )}
+                {step === TOTAL_STEPS
+                  ? submitting
+                    ? 'Sending…'
+                    : 'Send it →'
+                  : 'Continue →'}
+              </button>
+            </div>
           </div>
         )}
       </div>
