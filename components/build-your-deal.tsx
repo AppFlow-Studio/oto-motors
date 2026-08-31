@@ -204,11 +204,11 @@ export function BuildYourDeal({
           </form>
         )}
 
-        <p className="mt-8 max-w-2xl border-t border-foreground/30 pt-4 font-data text-xs leading-relaxed text-muted-foreground">
+        {/* <p className="mt-8 max-w-2xl border-t border-foreground/30 pt-4 font-data text-xs leading-relaxed text-muted-foreground">
           No pricing on this site because there is no honest way to publish it. Rates move weekly,
           allocation moves daily, and every deal is structured differently. We will give you the
           number for your car.
-        </p>
+        </p> */}
       </div>
     </section>
   )

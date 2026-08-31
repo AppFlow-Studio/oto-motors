@@ -52,8 +52,9 @@ export default function GuidesIndex() {
       </h1>
       <div className="mt-8">
         <Lead>
-          How this actually works, explained plainly. No jargon dressed up as expertise, no pitch
-          hiding in the explanation.
+          How we source, structure, and deliver the car you actually want — explained as plainly as
+          we walk every client through it. Independent brokerage, real numbers, no dealer markup and
+          no pitch.
         </Lead>
       </div>
 
