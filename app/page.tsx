@@ -10,7 +10,7 @@ import { MarqueRail } from '@/components/marque-rail'
 import { allDeliveries, medianDays } from '@/lib/deliveries'
 
 export const metadata: Metadata = {
-  title: 'Luxury & Exotic Car Leasing — New York and Fort Lauderdale | OTO Motors',
+  title: 'OTO Motors— New York and Fort Lauderdale | Luxury & Exotic Car Leasing',
   description:
     'Independent luxury and exotic car brokerage. We source the car, structure the lease, finance or cash purchase, and deliver it. See every delivery we have made and how long it took.',
   alternates: { canonical: '/' },
