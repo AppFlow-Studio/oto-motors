@@ -80,7 +80,8 @@ export async function POST(request: Request) {
   }
 
   // Honeypot: real users never fill this. Pretend success to bots.
-  if (clean(body.company)) {
+  // Field is `hp_field` (not `company`) so browser autofill can't trip it.
+  if (clean(body.hp_field)) {
     return Response.json({ ok: true })
   }
 

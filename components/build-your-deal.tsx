@@ -165,13 +165,21 @@ export function BuildYourDeal({
               <input id={`${id}-phone`} name="phone" type="tel" className={inputCls} />
             </div>
 
-            {/* honeypot — hidden from humans, catches bots */}
+            {/*
+              Honeypot — catches naive bots that fill every field. Named
+              `hp_field` (not `company`) so Chrome/Safari never autofill it from
+              a saved profile, which would silently flag real leads as bots.
+              The data-*-ignore attrs tell 1Password/LastPass/Dashlane to skip it.
+            */}
             <input
               type="text"
-              name="company"
+              name="hp_field"
               tabIndex={-1}
               autoComplete="off"
               aria-hidden="true"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              data-form-type="other"
               className="absolute left-[-9999px] h-0 w-0 opacity-0"
             />
 
