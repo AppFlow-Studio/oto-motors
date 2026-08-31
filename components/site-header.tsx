@@ -13,7 +13,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-8">
         <Link href="/" className="inline-flex items-center gap-2.5 font-data text-base font-semibold tracking-[0.14em] transition-opacity hover:opacity-60" aria-label="OTO Motors home">
           <BrandMark className="h-6 w-6 shrink-0" />
-          <span>OTO<span className="text-muted-foreground">/</span>MOTORS</span>
+          <span>OTO<span className="text-muted-foreground"></span>MOTORS</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-5 lg:flex">

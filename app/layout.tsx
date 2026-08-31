@@ -28,7 +28,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://otomotors.example'),
   title: {
-    default: 'Luxury & Exotic Car Leasing — New York and Fort Lauderdale | OTO Motors',
+    default: 'OTO Motors New York and Fort Lauderdale | Luxury & Exotic Car Leasing —',
     template: '%s | OTO Motors',
   },
   description:
