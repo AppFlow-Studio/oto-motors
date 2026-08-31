@@ -36,23 +36,13 @@ function logoAttachment() {
   }
 }
 
-// Known fields we accept from the Build Your Deal wizard. Anything else
+// Known fields we accept from the Build Your Deal form. Anything else
 // on the payload is ignored, and every value is coerced + length-capped.
 const FIELDS = [
-  'brand',
-  'specNotes',
-  'acquisition',
-  'term',
-  'miles',
-  'down',
-  'budget',
-  'timing',
-  'leaseEndDate',
-  'hasTrade',
-  'tradeYear',
-  'tradeMake',
-  'tradeModel',
-  'region',
+  'vehicle',
+  'structure',
+  'location',
+  'timeframe',
   'name',
   'phone',
   'email',
@@ -97,19 +87,15 @@ export async function POST(request: Request) {
   // Collect + sanitize known fields
   const data = {} as Record<(typeof FIELDS)[number], string>
   for (const key of FIELDS) {
-    data[key] = clean(body[key], key === 'specNotes' ? 1500 : 200)
+    data[key] = clean(body[key], key === 'vehicle' ? 300 : 200)
   }
 
-  // Minimal server-side validation (mirrors the modal's gating)
-  if (data.name.length < 2 || data.phone.replace(/[^\d]/g, '').length < 7) {
+  // Minimal server-side validation (mirrors the form's required fields).
+  if (data.name.length < 2 || !isEmail(data.email) || data.vehicle.length < 2) {
     return Response.json(
-      { ok: false, error: 'A name and a valid mobile number are required.' },
+      { ok: false, error: 'A name, a valid email, and the vehicle are required.' },
       { status: 422 },
     )
-  }
-  if (data.email && !isEmail(data.email)) {
-    // Non-fatal: just drop an invalid optional email rather than reject.
-    data.email = ''
   }
 
   const apiKey = process.env.RESEND_API_KEY
@@ -125,8 +111,26 @@ export async function POST(request: Request) {
   const from = process.env.LEAD_FROM_EMAIL || 'OTO Motors <deals@exoticautoleasing.com>'
   const bcc = clean(process.env.LEAD_BCC_EMAIL)
 
+  // Map the lead form onto the email template's shape. Fields the form
+  // doesn't collect stay empty — the template skips empty rows.
   const emailData: LeadEmailData = {
-    ...data,
+    brand: data.vehicle,
+    specNotes: '',
+    acquisition: data.structure,
+    term: '',
+    miles: '',
+    down: '',
+    budget: '',
+    timing: data.timeframe,
+    leaseEndDate: '',
+    hasTrade: '',
+    tradeYear: '',
+    tradeMake: '',
+    tradeModel: '',
+    region: data.location,
+    name: data.name,
+    phone: data.phone,
+    email: data.email,
     submittedAt: formatSubmittedAt(),
     sourceUrl:
       request.headers.get('referer') ||

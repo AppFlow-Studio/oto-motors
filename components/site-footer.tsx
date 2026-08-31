@@ -1,100 +1,101 @@
-import { Wordmark } from '@/components/site-header'
+import Link from 'next/link'
+import { CREDIBILITY, MARQUES, NAV } from '@/lib/site'
+import { BrandMark } from '@/components/brand-mark'
 
-const COLUMNS = [
-  {
-    heading: 'Cars',
-    links: ['Porsche', 'Range Rover', 'Mercedes-AMG', 'Lamborghini', 'Rolls-Royce', 'All marques'],
-  },
-  {
-    heading: 'Lease or Buy',
-    links: ['Leasing', 'Financing', 'Cash purchase', 'Apply for financing', 'Trade-in appraisal'],
-  },
-  {
-    heading: 'Company',
-    links: ['About OTO', 'Recent deliveries', 'How it works', 'The two-state garage', 'Contact'],
-  },
-]
+export function CredibilityStrip() {
+  return (
+    <section aria-label="Track record" className="border-t border-foreground">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <dl className="grid grid-cols-2 md:grid-cols-4">
+          {CREDIBILITY.map((item, i) => (
+            <div
+              key={item.label}
+              className={`border-b border-foreground py-6 md:border-b-0 ${
+                i !== 0 ? 'md:border-l md:pl-6' : ''
+              } ${i % 2 !== 0 ? 'border-l pl-6 md:pl-6' : ''}`}
+            >
+              <dt className="font-data text-[0.625rem] uppercase tracking-wider text-muted-foreground">
+                {item.label}
+              </dt>
+              <dd className="mt-2 font-data text-lg tracking-tight tnum">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )
+}
 
 export function SiteFooter() {
   return (
-    <footer className="bg-background">
-      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
-        <div className="grid gap-12 md:grid-cols-5 md:gap-8">
-          <div className="md:col-span-1">
-            <Wordmark className="text-lg" />
-            <p className="mt-6 text-[14px] leading-relaxed text-muted-foreground text-pretty">
-              Private vehicle acquisition. Lease, finance, or cash.
+    <footer className="border-t border-foreground">
+      <div className="mx-auto max-w-6xl px-4 py-12 md:px-8">
+        <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
+          <div>
+            <p className="flex items-center gap-2.5 font-display text-2xl leading-none">
+              <BrandMark className="h-7 w-7 shrink-0" />
+              OTO Motors
             </p>
-            <p className="eyebrow mt-6 text-muted-foreground">An OTO Group company</p>
+            <address className="mt-4 font-data text-sm not-italic leading-relaxed text-muted-foreground">
+              200 Vesey Street, Battery Park City, New York, NY
+              <br />
+              221 SW 1st Ave, Fort Lauderdale, FL 33301
+            </address>
+            <p className="mt-4 max-w-md font-data text-xs leading-relaxed text-muted-foreground">
+              An independent brokerage. Not a franchise dealer, and not affiliated with any
+              manufacturer.
+            </p>
           </div>
 
-          {COLUMNS.map((col) => (
-            <nav key={col.heading} aria-label={col.heading}>
-              <h3 className="eyebrow text-champagne">{col.heading}</h3>
-              <ul className="mt-6 flex flex-col gap-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#cta"
-                      className="text-[14px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-
-          <div>
-            <h3 className="eyebrow text-champagne">Locations</h3>
-            <ul className="mt-6 flex flex-col gap-6">
+          <nav aria-label="Footer">
+            <p className="font-data text-[0.625rem] uppercase tracking-wider text-muted-foreground">
+              Site
+            </p>
+            <ul className="mt-3 space-y-2">
+              {NAV.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-data text-sm transition-colors hover:text-muted-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <p className="text-[14px] text-foreground">New York</p>
-                <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">
-                  Tribeca, Manhattan
-                  <br />
-                  +1 (212) 555-0142
-                </p>
-              </li>
-              <li>
-                <p className="text-[14px] text-foreground">Fort Lauderdale</p>
-                <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">
-                  Las Olas, Florida
-                  <br />
-                  +1 (954) 555-0177
-                </p>
+                <Link
+                  href="/build-your-deal/"
+                  className="font-data text-sm transition-colors hover:text-muted-foreground"
+                >
+                  Build Your Deal
+                </Link>
               </li>
             </ul>
-          </div>
+          </nav>
+
+          <nav aria-label="Marques">
+            <p className="font-data text-[0.625rem] uppercase tracking-wider text-muted-foreground">
+              Marques
+            </p>
+            <ul className="mt-3 grid grid-cols-1 gap-2">
+              {MARQUES.map((m) => (
+                <li key={m.slug}>
+                  <Link
+                    href={`/brands/${m.slug}/`}
+                    className="font-data text-sm transition-colors hover:text-muted-foreground"
+                  >
+                    {m.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-20 flex flex-col gap-6 border-t border-hairline pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="eyebrow text-muted-foreground">
-            © {new Date().getFullYear()} OTO Motors LLC
-          </p>
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {['Privacy', 'Terms', 'Disclosures', 'Accessibility', 'Instagram'].map((item) => (
-              <li key={item}>
-                <a
-                  href="#top"
-                  className="eyebrow text-muted-foreground transition-colors duration-300 hover:text-foreground"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <p className="mt-10 max-w-4xl text-[12px] leading-relaxed text-muted-foreground/80 text-pretty">
-          OTO Motors is an independent vehicle brokerage. We are not a franchise dealer and do not
-          perform warranty work. All payments and terms are subject to credit approval, vehicle
-          availability, and current manufacturer programs. Figures shown are examples, not offers.
+        <p className="mt-12 font-data text-[0.625rem] uppercase tracking-wider text-muted-foreground">
+          &copy; {new Date().getFullYear()} OTO Motors
         </p>
       </div>
-
-      <div className="h-20 md:hidden" aria-hidden="true" />
     </footer>
   )
 }

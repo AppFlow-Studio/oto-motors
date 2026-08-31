@@ -1,40 +1,44 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Italiana, Archivo, IBM_Plex_Mono } from 'next/font/google'
+import { Archivo, Italiana, IBM_Plex_Mono } from 'next/font/google'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter, CredibilityStrip } from '@/components/site-footer'
 import './globals.css'
 
-const italiana = Italiana({
-  weight: '400',
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-italiana',
   display: 'swap',
+  variable: '--font-archivo',
 })
 
-const archivo = Archivo({
-  weight: ['300', '400', '500'],
+const italiana = Italiana({
   subsets: ['latin'],
-  variable: '--font-archivo',
+  weight: '400',
   display: 'swap',
+  variable: '--font-italiana',
 })
 
 const plexMono = IBM_Plex_Mono({
-  weight: ['400', '500'],
   subsets: ['latin'],
-  variable: '--font-plex-mono',
+  weight: ['400', '500', '600'],
   display: 'swap',
+  variable: '--font-plex-mono',
 })
 
 export const metadata: Metadata = {
-  title: 'OTO Motors — Private Vehicle Acquisition | New York & South Florida',
+  metadataBase: new URL('https://otomotors.example'),
+  title: {
+    default: 'Luxury & Exotic Car Leasing — New York and Fort Lauderdale | OTO Motors',
+    template: '%s | OTO Motors',
+  },
   description:
-    'OTO Motors is a private vehicle acquisition house. We find, negotiate, and deliver luxury and exotic cars — leased, financed, or bought outright. Offices in Tribeca, New York and Fort Lauderdale, Florida.',
+    'Independent luxury and exotic car brokerage. We source the car, structure the lease, finance or cash purchase, and deliver it. See every delivery we have made and how long it took.',
   generator: 'v0.app',
-  // Icons are provided by the app/icon.png and app/apple-icon.png file conventions.
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#0a0a0c',
+  colorScheme: 'light',
+  themeColor: '#fafaf8',
 }
 
 export default function RootLayout({
@@ -45,10 +49,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`bg-background ${italiana.variable} ${archivo.variable} ${plexMono.variable}`}
+      className={`${archivo.variable} ${italiana.variable} ${plexMono.variable} bg-background`}
     >
-      <body className="bg-background text-foreground font-sans antialiased">
-        {children}
+      <body className="antialiased">
+        <SiteHeader />
+        <main>{children}</main>
+        <CredibilityStrip />
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

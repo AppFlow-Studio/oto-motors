@@ -31,15 +31,17 @@ export type LeadEmailData = {
 }
 
 // ── palette ──────────────────────────────────────────────
+// Monochrome, to match the black-and-white brand. `champagne` is kept as
+// the accent key (used throughout) but resolved to a light neutral.
 const C = {
   bg: '#0a0a0c',
   panel: '#121216',
   panelSoft: '#17171c',
   line: '#26262b',
-  text: '#edeae3',
-  muted: '#84848d',
-  champagne: '#c8a96a',
-  champagneLight: '#e8d5a4',
+  text: '#f4f4f2',
+  muted: '#8a8a8f',
+  champagne: '#d8d6cf',
+  champagneLight: '#eceae4',
 }
 
 // Content-ID for the inline logo attachment. The route attaches
@@ -162,23 +164,6 @@ function primaryButton(href: string, label: string): string {
   )}</a>`
 }
 
-// ── helpers to compose derived strings ───────────────────
-function tradeSummary(d: LeadEmailData): string {
-  if (d.hasTrade !== 'Yes') return d.hasTrade || ''
-  const car = [d.tradeYear, d.tradeMake, d.tradeModel].filter(Boolean).join(' ')
-  return car ? `Yes — ${car}` : 'Yes'
-}
-
-function structureRows(d: LeadEmailData): string {
-  return (
-    row('Acquisition', d.acquisition) +
-    row('Term', d.term) +
-    row('Miles / year', d.miles) +
-    row('Money down', d.down) +
-    row('Budget', d.budget)
-  )
-}
-
 // ─────────────────────────────────────────────────────────
 //  1) Internal lead notification (to the sales inbox)
 // ─────────────────────────────────────────────────────────
@@ -241,19 +226,15 @@ export function renderLeadNotification(
       </td>
     </tr>
 
-    ${quoteBlock('The car they want', d.specNotes)}
-
-    ${section('Vehicle', row('Marque', d.brand))}
-    ${section('Structure', structureRows(d))}
+    ${section('Vehicle', row('Vehicle or spec', d.brand))}
+    ${section('Structure', row('Structure', d.acquisition))}
     ${section(
-      'Timing',
-      row('When', d.timing) + row('Lease end date', d.leaseEndDate),
+      'Delivery & timing',
+      row('Delivery location', d.region) + row('Timeframe', d.timing),
     )}
-    ${section('Trade-in', row('Trade', tradeSummary(d)))}
-    ${section('Delivery', row('Region', d.region))}
     ${section(
       'Contact',
-      row('Name', d.name) + row('Mobile', d.phone) + row('Email', d.email),
+      row('Name', d.name) + row('Phone', d.phone) + row('Email', d.email),
     )}
 
     <tr>
@@ -284,24 +265,17 @@ export function renderLeadNotification(
   const text = [
     'NEW BUILD YOUR DEAL LEAD',
     '',
-    `Name:        ${d.name || '—'}`,
-    `Mobile:      ${d.phone || '—'}`,
-    `Email:       ${d.email || '—'}`,
+    `Name:              ${d.name || '—'}`,
+    `Phone:             ${d.phone || '—'}`,
+    `Email:             ${d.email || '—'}`,
     '',
-    `Marque:      ${d.brand || '—'}`,
-    `Spec notes:  ${d.specNotes || '—'}`,
-    `Acquisition: ${d.acquisition || '—'}`,
-    `Term:        ${d.term || '—'}`,
-    `Miles/year:  ${d.miles || '—'}`,
-    `Money down:  ${d.down || '—'}`,
-    `Budget:      ${d.budget || '—'}`,
-    `Timing:      ${d.timing || '—'}`,
-    `Lease end:   ${d.leaseEndDate || '—'}`,
-    `Trade-in:    ${tradeSummary(d) || '—'}`,
-    `Delivery:    ${d.region || '—'}`,
+    `Vehicle or spec:   ${d.brand || '—'}`,
+    `Structure:         ${d.acquisition || '—'}`,
+    `Delivery location: ${d.region || '—'}`,
+    `Timeframe:         ${d.timing || '—'}`,
     '',
-    `Submitted:   ${d.submittedAt}`,
-    d.sourceUrl ? `Source:      ${d.sourceUrl}` : '',
+    `Submitted:         ${d.submittedAt}`,
+    d.sourceUrl ? `Source:            ${d.sourceUrl}` : '',
   ]
     .filter(Boolean)
     .join('\n')
@@ -327,19 +301,13 @@ export function renderCustomerConfirmation(
     'A specialist is pulling live availability and lender programs for you now.'
 
   const recapRows =
-    row('Vehicle', d.brand) +
-    row('Acquisition', d.acquisition) +
-    row('Term', d.term) +
-    row('Miles / year', d.miles) +
-    row('Money down', d.down) +
-    row('Budget', d.budget) +
-    row('Timing', d.timing) +
-    row('Lease end date', d.leaseEndDate) +
-    row('Trade-in', tradeSummary(d)) +
-    row('Delivery', d.region)
+    row('Vehicle or spec', d.brand) +
+    row('Structure', d.acquisition) +
+    row('Delivery location', d.region) +
+    row('Timeframe', d.timing)
 
   const contactRows =
-    row('Name', d.name) + row('Mobile', d.phone) + row('Email', d.email)
+    row('Name', d.name) + row('Phone', d.phone) + row('Email', d.email)
 
   const inner = `
     <tr>
@@ -393,21 +361,14 @@ export function renderCustomerConfirmation(
     "You'll get real numbers by text within one business hour.",
     '',
     'YOUR REQUEST',
-    textLine('Vehicle', d.brand),
-    textLine('Acquisition', d.acquisition),
-    textLine('Term', d.term),
-    textLine('Miles/year', d.miles),
-    textLine('Money down', d.down),
-    textLine('Budget', d.budget),
-    textLine('Timing', d.timing),
-    textLine('Lease end', d.leaseEndDate),
-    textLine('Trade-in', tradeSummary(d)),
-    textLine('Delivery', d.region),
-    textLine('Details', d.specNotes),
+    textLine('Vehicle or spec', d.brand),
+    textLine('Structure', d.acquisition),
+    textLine('Delivery location', d.region),
+    textLine('Timeframe', d.timing),
     '',
     'WE’LL REACH YOU AT',
     textLine('Name', d.name),
-    textLine('Mobile', d.phone),
+    textLine('Phone', d.phone),
     textLine('Email', d.email),
     '',
     'Need us sooner? Call +1 (212) 555-0142 (NY) or +1 (954) 555-0177 (FL).',

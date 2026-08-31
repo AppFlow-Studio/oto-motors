@@ -1,149 +1,82 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { useDeal } from '@/components/deal-provider'
+import Link from 'next/link'
+import { useState } from 'react'
+import { NAV } from '@/lib/site'
 import { BrandMark } from '@/components/brand-mark'
 
-const NAV = [
-  { label: 'Cars', href: '#marques' },
-  { label: 'Recent Deliveries', href: '#deliveries' },
-  { label: 'Lease or Buy', href: '#paths' },
-  { label: 'Services', href: '#process' },
-  { label: 'Locations', href: '#locations' },
-]
-
-export function Wordmark({ className = '' }: { className?: string }) {
-  return (
-    <span className={`inline-flex items-center gap-2.5 leading-none ${className}`}>
-      <BrandMark className="h-[1.15em] w-[1.15em] shrink-0" />
-      <span className="font-display tracking-[0.28em]">
-        OTO <span className="champagne-text">MOTORS</span>
-      </span>
-    </span>
-  )
-}
-
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const { openDeal } = useDeal()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [menuOpen])
+  const [open, setOpen] = useState(false)
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'border-b border-hairline bg-background/72 backdrop-blur-xl'
-          : 'border-b border-transparent'
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:h-20 md:px-10">
-        <a href="#top" className="shrink-0" aria-label="OTO Motors — home">
-          <Wordmark className="text-[17px] md:text-xl" />
-        </a>
+    <header className="sticky top-0 z-50 border-b border-foreground/70 bg-background/90 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+        <Link href="/" className="inline-flex items-center gap-2.5 font-data text-base font-semibold tracking-[0.14em] transition-opacity hover:opacity-60" aria-label="OTO Motors home">
+          <BrandMark className="h-6 w-6 shrink-0" />
+          <span>OTO<span className="text-muted-foreground">/</span>MOTORS</span>
+        </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+        <nav aria-label="Primary" className="hidden items-center gap-5 lg:flex">
           {NAV.map((item) => (
-            <a
-              key={item.label}
+            <Link
+              key={item.href}
               href={item.href}
-              className="eyebrow text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="font-data text-xs uppercase tracking-wider transition-colors hover:text-muted-foreground"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-7 lg:flex">
-          <a
-            href="#cta"
-            className="eyebrow text-muted-foreground transition-colors duration-300 hover:text-foreground"
+        <div className="flex items-center gap-3">
+          <Link
+            href="/build-your-deal/"
+            className="hidden border border-foreground bg-foreground px-4 py-2 font-data text-xs uppercase tracking-wider text-background transition-colors hover:bg-background hover:text-foreground sm:inline-block"
           >
-            Apply
-          </a>
+            Build Your Deal
+          </Link>
           <button
             type="button"
-            onClick={openDeal}
-            className="champagne-gradient eyebrow px-5 py-3 text-[#0a0a0c] transition-opacity duration-300 hover:opacity-85"
+            onClick={() => setOpen((v) => !v)}
+            className="border border-foreground px-3 py-2 font-data text-xs uppercase tracking-wider lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
           >
-            Build Your Deal →
+            {open ? 'Close' : 'Menu'}
           </button>
         </div>
+      </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen(true)}
-          className="p-1 text-foreground lg:hidden"
-          aria-label="Open menu"
+      {open ? (
+        <nav
+          id="mobile-nav"
+          aria-label="Mobile"
+          className="border-t border-foreground bg-background lg:hidden"
         >
-          <Menu size={20} strokeWidth={1} />
-        </button>
-      </div>
-
-      {/* mobile drawer */}
-      <div
-        className={`fixed inset-0 z-50 bg-background transition-opacity duration-300 lg:hidden ${
-          menuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        aria-hidden={!menuOpen}
-      >
-        <div className="flex h-16 items-center justify-between border-b border-hairline px-5">
-          <Wordmark className="text-[17px]" />
-          <button
-            type="button"
-            onClick={() => setMenuOpen(false)}
-            className="p-1"
-            aria-label="Close menu"
-          >
-            <X size={20} strokeWidth={1} />
-          </button>
-        </div>
-        <nav className="flex flex-col" aria-label="Mobile">
-          {NAV.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-display border-b border-hairline px-5 py-6 text-3xl tracking-wide"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="#cta"
-            onClick={() => setMenuOpen(false)}
-            className="font-display border-b border-hairline px-5 py-6 text-3xl tracking-wide text-champagne"
-          >
-            Apply
-          </a>
+          <ul>
+            {NAV.map((item) => (
+              <li key={item.href} className="border-b border-foreground/30">
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-3 font-data text-sm uppercase tracking-wider"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="p-4">
+              <Link
+                href="/build-your-deal/"
+                onClick={() => setOpen(false)}
+                className="block border border-foreground bg-foreground px-4 py-3 text-center font-data text-xs uppercase tracking-wider text-background"
+              >
+                Build Your Deal
+              </Link>
+            </li>
+          </ul>
         </nav>
-        <div className="px-5 py-8">
-          <button
-            type="button"
-            onClick={() => {
-              setMenuOpen(false)
-              openDeal()
-            }}
-            className="champagne-gradient eyebrow w-full py-4 text-[#0a0a0c]"
-          >
-            Build Your Deal →
-          </button>
-        </div>
-      </div>
+      ) : null}
     </header>
   )
 }
