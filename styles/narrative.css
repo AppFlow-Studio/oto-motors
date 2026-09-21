@@ -118,7 +118,7 @@
 .narrative [data-rise].n-pending{opacity:0;transform:translateY(36px)}
 .narrative [data-drift]{translate:0 var(--drift,0px)}
 .narrative-page .closing{padding-top:100px}
-@media(min-width:1800px){.n-copy{padding-top:180px;padding-bottom:180px}.n-collage{max-width:1350px;height:950px}.n-layer-inset{max-width:1600px}}
+@media(min-width:1800px){.n-copy{padding-top:180px;padding-bottom:180px}.n-collage{max-width:1350px;height:950px}.n-layer-inset{max-width:1600px;margin-inline:auto}}
 @media(max-width:800px){
  .n-hero{min-height:600px}.n-hero-copy{margin-bottom:5vh;padding-left:24px;padding-right:24px}.n-hero h1{font-size:clamp(40px,8vw,64px)}
  .n-layer-track{min-height:135svh;padding-bottom:60px}.n-layer-content{padding-top:58vh}.n-layer-copy{margin-bottom:70px}.n-layer-inset{width:88%;height:50svh;min-height:300px}.n-layer-word{font-size:16vw;top:20%}
@@ -160,9 +160,10 @@
   position:sticky;
   top:0;
   width:100%;
+  max-width:none;
   height:100svh;
   min-height:550px;
-  margin:0!important;
+  margin:0 auto!important;
   overflow:hidden;
   box-shadow:none;
   clip-path:inset(8% 10%);
