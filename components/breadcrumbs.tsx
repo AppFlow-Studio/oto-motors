@@ -19,20 +19,16 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   }
 
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-foreground/30">
+    <nav aria-label="Breadcrumb" className="breadcrumbs wrap">
       <JsonLd data={jsonLd} />
-      <ol className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-3 font-data text-[0.6875rem] uppercase tracking-wider text-muted-foreground md:px-8">
+      <ol>
         {trail.map((c, i) => (
-          <li key={c.href} className="flex items-center gap-2">
+          <li key={c.href}>
             {i > 0 ? <span aria-hidden="true">/</span> : null}
             {i === trail.length - 1 ? (
-              <span className="text-foreground" aria-current="page">
-                {c.label}
-              </span>
+              <span aria-current="page">{c.label}</span>
             ) : (
-              <Link href={c.href} className="transition-colors hover:text-foreground">
-                {c.label}
-              </Link>
+              <Link href={c.href}>{c.label}</Link>
             )}
           </li>
         ))}

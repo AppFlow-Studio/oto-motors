@@ -1,44 +1,41 @@
 import type { MetadataRoute } from 'next'
-import { SITE, MARQUES, MODELS, CROSSINGS, INTENT_PAGES } from '@/lib/site'
-import { allDeliveries } from '@/lib/deliveries'
+import { SITE } from '@/lib/site'
+import { MARQUE_SLUGS } from '@/content/marques'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url.replace(/\/$/, '')
   const u = (path: string) => `${base}${path}`
   const now = new Date()
 
-  const staticPaths = [
-    '/',
-    '/deliveries/',
-    '/brands/',
-    '/guides/',
-    '/new-york/',
-    '/fort-lauderdale/',
-    '/build-your-deal/',
-    '/guides/g-wagon-section-179/',
+  const staticPaths: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
+    { path: '/', priority: 1, freq: 'weekly' },
+    { path: '/showroom/', priority: 0.8, freq: 'weekly' },
+    { path: '/brands/', priority: 0.8, freq: 'monthly' },
+    { path: '/deliveries/', priority: 0.7, freq: 'weekly' },
+    { path: '/leasing/', priority: 0.8, freq: 'monthly' },
+    { path: '/financing/', priority: 0.8, freq: 'monthly' },
+    { path: '/cash-purchase/', priority: 0.8, freq: 'monthly' },
+    { path: '/build-your-deal/', priority: 0.9, freq: 'monthly' },
+    { path: '/new-york/', priority: 0.7, freq: 'monthly' },
+    { path: '/fort-lauderdale/', priority: 0.7, freq: 'monthly' },
+    { path: '/guides/', priority: 0.6, freq: 'monthly' },
+    { path: '/guides/g-wagon-section-179/', priority: 0.9, freq: 'monthly' },
   ]
 
   const entries: MetadataRoute.Sitemap = staticPaths.map((p) => ({
-    url: u(p),
+    url: u(p.path),
     lastModified: now,
-    changeFrequency: p === '/' || p === '/deliveries/' ? 'weekly' : 'monthly',
-    priority: p === '/' ? 1 : p === '/guides/g-wagon-section-179/' ? 0.9 : 0.7,
+    changeFrequency: p.freq,
+    priority: p.priority,
   }))
 
-  for (const p of INTENT_PAGES) {
-    entries.push({ url: u(`/${p.slug}/`), lastModified: now, changeFrequency: 'monthly', priority: 0.7 })
-  }
-  for (const m of MARQUES) {
-    entries.push({ url: u(`/brands/${m.slug}/`), lastModified: now, changeFrequency: 'monthly', priority: 0.6 })
-  }
-  for (const m of MODELS) {
-    entries.push({ url: u(`/brands/${m.brandSlug}/${m.modelSlug}/`), lastModified: now, changeFrequency: 'monthly', priority: 0.8 })
-  }
-  for (const c of CROSSINGS) {
-    entries.push({ url: u(`/lease/${c.slug}/`), lastModified: now, changeFrequency: 'monthly', priority: 0.6 })
-  }
-  for (const d of allDeliveries()) {
-    entries.push({ url: u(`/deliveries/${d.slug}/`), lastModified: now, changeFrequency: 'yearly', priority: 0.5 })
+  for (const slug of MARQUE_SLUGS) {
+    entries.push({
+      url: u(`/${slug}/`),
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    })
   }
 
   return entries

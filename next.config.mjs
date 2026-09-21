@@ -11,6 +11,19 @@ const nextConfig = {
   outputFileTracingIncludes: {
     '/api/build-deal': ['./public/logo.png'],
   },
+  // Preserve inbound links / SEO from the previous URL structure.
+  async redirects() {
+    return [
+      { source: '/brands/:marque/:model', destination: '/:marque', permanent: true },
+      { source: '/brands/:marque', destination: '/:marque', permanent: true },
+      { source: '/lease/:slug', destination: '/leasing', permanent: true },
+      { source: '/deliveries/:slug', destination: '/deliveries', permanent: true },
+      { source: '/business-leasing', destination: '/build-your-deal', permanent: true },
+      { source: '/out-of-state', destination: '/build-your-deal', permanent: true },
+      { source: '/llc-titling', destination: '/build-your-deal', permanent: true },
+      { source: '/vehicle-sourcing', destination: '/build-your-deal', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

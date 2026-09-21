@@ -1,17 +1,8 @@
 /**
- * The OTO Motors glyph — the open-end wrench head + AI sparkle, traced
- * pixel-for-pixel from the source logo and recolored to solid black.
- * `public/otopair-mark.png` is black on transparent, so it reads on the
- * light canvas; the white-on-dark variant lives in the transactional email.
+ * The OTO Motors glyph — rendered as the exact `public/logo.png` mark used
+ * across the brand, recolored to the emerald identity by using the PNG's alpha
+ * as a CSS mask and filling it with `currentColor`. See `.oto-mark` in oto.css.
  */
 export function BrandMark({ className = '' }: { className?: string }) {
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/otopair-mark.png"
-      alt=""
-      aria-hidden="true"
-      className={`inline-block object-contain ${className}`}
-    />
-  )
+  return <span className={`oto-mark ${className}`} role="img" aria-hidden="true" />
 }

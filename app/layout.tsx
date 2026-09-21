@@ -1,63 +1,54 @@
-import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
-import { Archivo, Italiana, IBM_Plex_Mono } from 'next/font/google'
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter, CredibilityStrip } from '@/components/site-footer'
-import './globals.css'
-
-const archivo = Archivo({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-archivo',
-})
-
-const italiana = Italiana({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-italiana',
-})
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-  variable: '--font-plex-mono',
-})
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import { SITE } from "@/lib/site";
+import { AutoDealerJsonLd } from "@/components/json-ld";
+import "@/styles/styles.css";
+import "@/styles/editorial.css";
+import "@/styles/showroom.css";
+import "@/styles/narrative.css";
+import "@/styles/refinement.css";
+import "@/styles/materials.css";
+import "@/styles/oto.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://otomotors.example'),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: 'OTO Motors New York and Fort Lauderdale | Luxury & Exotic Car Leasing —',
-    template: '%s | OTO Motors',
+    default:
+      "OTO Motors — Luxury & Exotic Car Leasing, New York & Fort Lauderdale",
+    template: "%s | OTO Motors",
   },
   description:
-    'Independent luxury and exotic car brokerage. We source the car, structure the lease, finance or cash purchase, and deliver it. See every delivery we have made and how long it took.',
-  generator: 'v0.app',
-}
+    "Independent luxury and exotic car brokerage. We source the car, structure the lease, finance or cash purchase, and deliver it — across New York and Florida.",
+  applicationName: "OTO Motors",
+  openGraph: {
+    type: "website",
+    siteName: "OTO Motors",
+    url: SITE.url,
+  },
+};
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#fafaf8',
-}
+  colorScheme: "dark",
+  themeColor: "#0f1512",
+};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${archivo.variable} ${italiana.variable} ${plexMono.variable} bg-background`}
-    >
-      <body className="antialiased">
-        <SiteHeader />
-        <main>{children}</main>
-        <CredibilityStrip />
-        <SiteFooter />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+    <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/assets/jost-light.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin=""
+        />
+        <AutoDealerJsonLd />
+      </head>
+      <body>
+        {children}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }

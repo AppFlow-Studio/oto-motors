@@ -1,0 +1,188 @@
+/* OTO Motors — green identity: brand lockup, live lead form, Places dropdown.
+   Loaded last so it overrides the imported editorial system where needed. */
+
+/* The design blended the whole header with `mix-blend-mode:difference` for
+   legibility over hero imagery, but that shifts the emerald mark to maroon.
+   Render the header in true colours (green mark) and keep it legible on any
+   hero with a soft top scrim instead. */
+.editorial header,
+.editorial > header,
+.narrative-page header {
+  mix-blend-mode: normal !important;
+  background: linear-gradient(180deg, rgba(8, 12, 10, 0.62), rgba(8, 12, 10, 0)) !important;
+  color: #f3f2ec;
+}
+
+/* ---- Brand lockup (green wrench mark + OTO MOTORS wordmark) ---- */
+.oto-brand {
+  gap: 12px;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.oto-brand .brand-mark {
+  width: 34px;
+  height: 34px;
+  color: var(--text);
+  flex: 0 0 auto;
+  display: block;
+}
+/* Exact public/logo.png shape, recolored emerald via alpha mask + currentColor. */
+.oto-mark {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: url("/logo.png") no-repeat center / contain;
+  mask: url("/logo.png") no-repeat center / contain;
+}
+.oto-brand .brand-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42em;
+  writing-mode: horizontal-tb;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.oto-brand .brand-word em {
+  font-style: normal;
+  font-weight: 300;
+  opacity: 0.62;
+}
+.editorial .oto-brand .brand-word,
+.editorial .oto-brand {
+  font-size: 20px;
+}
+@media (max-width: 700px) {
+  .oto-brand .brand-mark { width: 28px; height: 28px; }
+  .oto-brand .brand-word { font-size: 17px; letter-spacing: 0.16em; }
+}
+
+/* ---- Google Places autocomplete dropdown ---- */
+.ac { position: relative; }
+.ac-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 30;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 280px;
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+.ac-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 13px 16px;
+  font-size: 15px;
+  color: var(--text);
+}
+.ac-option.is-active { background: var(--accent); color: var(--bg); }
+.ac-credit { padding: 8px 16px; text-align: right; }
+.ac-credit span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ac-error {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---- Live lead form states ---- */
+.hp-field {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+#inquiry-form .button { width: 100%; margin-top: 20px; }
+.editorial #inquiry-form .button { margin-top: 15px; }
+.form-error {
+  margin-top: 22px;
+  padding: 14px 18px;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.form-success {
+  border: 1px solid var(--line);
+  padding: 40px 35px;
+}
+.form-success .section-tag { color: var(--accent); }
+.form-success h2 { margin: 12px 0 18px; }
+.form-success p { max-width: 460px; }
+
+/* ---- Breadcrumbs (SEO pages) ---- */
+.breadcrumbs { padding-top: 128px; padding-bottom: 4px; }
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.breadcrumbs li { display: flex; align-items: center; gap: 10px; }
+.breadcrumbs a { color: var(--muted); }
+.breadcrumbs a:hover { color: var(--text); }
+.breadcrumbs [aria-current="page"] { color: var(--accent); }
+@media (max-width: 700px) { .breadcrumbs { padding-top: 104px; } }
+
+/* ---- Editorial long-form (location + guide pages) ---- */
+.article-lede { padding-top: 40px; padding-bottom: 40px; }
+.article-lede h1 {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  margin-top: 22px;
+}
+.article-lede .intro {
+  max-width: 640px;
+  margin-top: 30px;
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.article-body { max-width: 760px; padding-bottom: 40px; }
+.article-body h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: 0.01em;
+  margin-top: 60px;
+  margin-bottom: 18px;
+}
+.article-body h2:first-child { margin-top: 0; }
+.article-body p { margin-bottom: 18px; }
+.article-body p + p { margin-top: 0; }
+.article-cta {
+  border-top: 1px solid var(--line);
+  padding-top: 45px;
+  margin-top: 20px;
+}
+.article-cta h2 { margin-bottom: 20px; }

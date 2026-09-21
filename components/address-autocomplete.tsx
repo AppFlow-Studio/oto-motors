@@ -173,7 +173,7 @@ export function AddressAutocomplete({
   const listId = `${id ?? name}-listbox`
 
   return (
-    <div ref={rootRef} className={wrapperClassName ?? 'relative'}>
+    <div ref={rootRef} className={wrapperClassName ?? 'ac'}>
       <input
         id={id}
         name={name}
@@ -191,36 +191,26 @@ export function AddressAutocomplete({
         aria-autocomplete="list"
       />
       {open && items.length > 0 ? (
-        <ul
-          id={listId}
-          role="listbox"
-          className="absolute left-0 right-0 top-full z-20 max-h-72 overflow-auto border border-t-0 border-foreground bg-background"
-        >
+        <ul id={listId} role="listbox" className="ac-list">
           {items.map((s, i) => (
             <li key={`${s.id}-${i}`} role="option" aria-selected={i === active}>
               <button
                 type="button"
                 onClick={() => pick(s)}
                 onMouseEnter={() => setActive(i)}
-                className={`block w-full px-3 py-2.5 text-left font-data text-sm ${
-                  i === active ? 'bg-foreground text-background' : 'bg-background text-foreground'
-                }`}
+                className={`ac-option${i === active ? ' is-active' : ''}`}
               >
                 {s.text}
               </button>
             </li>
           ))}
-          <li className="border-t border-foreground/20 px-3 py-1.5 text-right">
-            <span className="font-data text-[0.5625rem] uppercase tracking-wider text-muted-foreground">
-              Powered by Google
-            </span>
+          <li className="ac-credit">
+            <span>Powered by Google</span>
           </li>
         </ul>
       ) : null}
       {open && error ? (
-        <p className="absolute left-0 right-0 top-full z-20 border border-t-0 border-foreground bg-background px-3 py-2 font-data text-[0.6875rem] leading-relaxed text-muted-foreground">
-          {error}
-        </p>
+        <p className="ac-error">{error}</p>
       ) : null}
     </div>
   )
