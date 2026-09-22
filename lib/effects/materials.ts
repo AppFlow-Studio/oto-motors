@@ -86,7 +86,7 @@ export function initMaterials() {
     document.querySelectorAll('.marque-entrance').forEach((section) => {
       if (section.classList.contains('is-in')) return;
       const rect = section.getBoundingClientRect();
-      if (rect.top < h * 0.82 && rect.bottom > h * 0.08) {
+      if (rect.top < h * 0.92 && rect.bottom > h * 0.06) {
         section.classList.add('is-in');
       }
     });
@@ -101,7 +101,10 @@ export function initMaterials() {
     drawings.forEach((study) => {
       const { el, paths, duration } = study;
       const r = (el.querySelector('svg') || el).getBoundingClientRect();
-      const visible = r.top < h * 0.72 && r.bottom > h * 0.15;
+      const inEntrance = el.closest('.marque-entrance');
+      const visible = inEntrance
+        ? r.top < h * 1.05 && r.bottom > h * 0.02
+        : r.top < h * 0.9 && r.bottom > h * 0.08;
 
       if (!visible) {
         study.elapsed = 0;
@@ -110,7 +113,6 @@ export function initMaterials() {
         study.last = 0;
         paths.forEach((path) => {
           path.style.setProperty('--pen-offset', '1');
-          path.style.setProperty('--pen-fill', '0');
         });
         return;
       }
@@ -123,12 +125,14 @@ export function initMaterials() {
       } else {
         study.last = 0;
       }
-      const p = reduced.matches ? 1 : clamp(study.elapsed / duration);
-      if (p === 1) study.done = true;
-      paths.forEach((path, i) => {
-        const part = clamp((p - (i / paths.length) * 0.32) / 0.68);
-        path.style.setProperty('--pen-offset', String(1 - part));
-        path.style.setProperty('--pen-fill', String(clamp((part - 0.9) / 0.1)));
+      const raw = reduced.matches ? 1 : clamp(study.elapsed / duration);
+      // Light ease-in-out; all strokes share the same progress so the car
+      // forms as one silhouette instead of body first / tires last.
+      const p =
+        raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+      if (raw === 1) study.done = true;
+      paths.forEach((path) => {
+        path.style.setProperty('--pen-offset', String(1 - p));
       });
     });
 

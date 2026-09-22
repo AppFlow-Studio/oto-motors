@@ -18,7 +18,7 @@ export function Collage({
       className={reverse ? "n-collage n-collage-reverse" : "n-collage"}
     >
       {first ? (
-        <figure data-drift={first.drift || undefined}>
+        <figure data-drift={first.drift ?? "-64"}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img alt={first.image.alt} decoding="async" loading="lazy" src={first.image.src} />
           {first.caption ? <figcaption>{first.caption}</figcaption> : null}
@@ -38,7 +38,7 @@ export function Collage({
         </video>
       </div>
       {second ? (
-        <figure data-drift={second.drift || undefined}>
+        <figure data-drift={second.drift ?? "64"}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img alt={second.image.alt} decoding="async" loading="lazy" src={second.image.src} />
           {second.caption ? <figcaption>{second.caption}</figcaption> : null}

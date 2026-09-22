@@ -7,8 +7,8 @@ export const maserati: MarquePage = {
     collageReverse: false,
     hero: {
       image: {
-        src: "/assets/maserati-front.webp",
-        alt: "Maserati GranTurismo"
+        src: "/assets/cars-images/maserati/maserati.jpg",
+        alt: "Maserati — wide shot"
       },
       video: null,
       eyebrow: "OTO / MASERATI",
@@ -19,7 +19,8 @@ export const maserati: MarquePage = {
     },
     entrance: {
       ariaLabel: "Maserati line study",
-      lineArt: "/assets/drawing-maserati-01.svg",
+      lineArt: "/assets/cars-images/maserati/maserati-side-linedrawing.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF MASERATI",
       heading: "A little more character.",
       body: "From a grand touring silhouette to a cabin that invites you to stay, find the Maserati that belongs in your everyday."
@@ -27,12 +28,12 @@ export const maserati: MarquePage = {
     layer: {
       word: "Maserati",
       back: {
-        src: "/assets/maserati-detail.webp",
-        alt: "Maserati — close detail"
+        src: "/assets/cars-images/maserati/maserati-front-closeup.jpg",
+        alt: "Maserati — front closeup"
       },
       inset: {
-        src: "/assets/maserati-front.webp",
-        alt: "Maserati — editorial film"
+        src: "/assets/cars-images/maserati/maserati-motion.jpg",
+        alt: "Maserati — motion"
       },
       drift: "-28"
     },
@@ -55,15 +56,15 @@ export const maserati: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/maserati-front.webp",
-            alt: "Maserati — exterior study"
+            src: "/assets/cars-images/maserati/maserati-front-closeup.jpg",
+            alt: "Maserati — front closeup"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/maserati-detail.webp",
-            alt: "Maserati — a closer perspective"
+            src: "/assets/cars-images/maserati/maserati-side-detail.jpg",
+            alt: "Maserati — side detail"
           },
           caption: "02 / THE FEELING"
         }
@@ -86,19 +87,19 @@ export const maserati: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/maserati-front.webp",
-        alt: "Maserati GranTurismo"
+        src: "/assets/cars-images/maserati/maserati-side-detail.jpg",
+        alt: "Maserati — side detail"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-maserati-04.svg",
+        src: "/assets/cars-images/maserati/maserati-side-linedrawing.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/drawing-maserati-04.svg",
         penMs: 18000
       }
     ],
@@ -126,6 +127,26 @@ export const maserati: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Maserati%20Grecale",
           ctaLabel: "Explore Grecale"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/maserati/maserati.jpg",
+            alt: "MC20"
+          },
+          name: "MC20",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Maserati%20MC20",
+          ctaLabel: "Explore MC20"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/maserati/maserati-motion.jpg",
+            alt: "Levante"
+          },
+          name: "Levante",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Maserati%20Levante",
+          ctaLabel: "Explore Levante"
         }
       ]
     },
@@ -136,7 +157,7 @@ export const maserati: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/ferrari-roma.webp",
+            src: "/assets/cars-images/ferrari/ferrari-wide.jpg",
             alt: "Ferrari"
           },
           name: "Ferrari",
@@ -145,7 +166,7 @@ export const maserati: MarquePage = {
         },
         {
           image: {
-            src: "/assets/range-profile.webp",
+            src: "/assets/cars-images/range-rover/range-rover-mountain-wideshot.jpg",
             alt: "Range Rover"
           },
           name: "Range Rover",
@@ -181,5 +202,5 @@ export const maserati: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/maserati/maserati-side-linedrawing.svg"
   };

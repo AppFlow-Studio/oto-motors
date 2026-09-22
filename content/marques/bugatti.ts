@@ -7,10 +7,14 @@ export const bugatti: MarquePage = {
     collageReverse: true,
     hero: {
       image: {
-        src: "/assets/bugatti-veyron.webp",
-        alt: "Bugatti Veyron"
+        src: "/assets/cars-images/bugatti/bugatti-wide-4.jpg",
+        alt: "Bugatti — wide shot"
       },
-      video: null,
+      video: {
+        src: "/assets/cars-images/bugatti/bugatti-video.mp4",
+        poster: "/assets/cars-images/bugatti/bugatti-wide-4.jpg",
+        ariaLabel: "Bugatti"
+      },
       eyebrow: "OTO / BUGATTI",
       heading: "A study in distinction.",
       sub: "Bugatti",
@@ -19,7 +23,8 @@ export const bugatti: MarquePage = {
     },
     entrance: {
       ariaLabel: "Bugatti line study",
-      lineArt: "/assets/drawing-car-svg.svg",
+      lineArt: "/assets/cars-images/bugatti/bugatti-side-lineart-2.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF BUGATTI",
       heading: "An individual conversation.",
       body: "Explore established Bugatti models through a specialist inquiry. Sourcing and payment arrangements are considered for the specific vehicle."
@@ -27,12 +32,12 @@ export const bugatti: MarquePage = {
     layer: {
       word: "Bugatti",
       back: {
-        src: "/assets/bugatti-veyron.webp",
-        alt: "Bugatti — close detail"
+        src: "/assets/cars-images/bugatti/bugatti-wide.jpg",
+        alt: "Bugatti — wide shot"
       },
       inset: {
-        src: "/assets/bugatti-veyron.webp",
-        alt: "Bugatti — editorial film"
+        src: "/assets/cars-images/bugatti/bugatti-wide-4.jpg",
+        alt: "Bugatti — wide shot"
       },
       drift: "-28"
     },
@@ -55,15 +60,15 @@ export const bugatti: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/bugatti-veyron.webp",
-            alt: "Bugatti — exterior study"
+            src: "/assets/cars-images/bugatti/bugatti-closeup-side.jpg",
+            alt: "Bugatti — side closeup"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/bugatti-veyron.webp",
-            alt: "Bugatti — a closer perspective"
+            src: "/assets/cars-images/bugatti/bugatti-tire.jpg",
+            alt: "Bugatti — wheel and tire detail"
           },
           caption: "02 / THE FEELING"
         }
@@ -71,8 +76,8 @@ export const bugatti: MarquePage = {
     },
     scene: {
       image: {
-        src: "/assets/bugatti-chiron.webp",
-        alt: "Bugatti Chiron"
+        src: "/assets/cars-images/bugatti/bugatti-wide.jpg",
+        alt: "Bugatti — wide shot"
       },
       caption: "",
       eyebrow: "THE CHIRON",
@@ -86,19 +91,19 @@ export const bugatti: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/bugatti-veyron.webp",
-        alt: "Bugatti Veyron"
+        src: "/assets/bugatti-chiron.webp",
+        alt: "Bugatti Chiron"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/bugatti/bugatti-side-lineart-2.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/bugatti/bugatti-back-lineart.svg",
         penMs: 18000
       }
     ],
@@ -126,6 +131,26 @@ export const bugatti: MarquePage = {
           body: "Specialist sourcing inquiry. Payment options confirmed individually.",
           href: "/build-your-deal?car=Bugatti%20Chiron",
           ctaLabel: "Explore Chiron"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/bugatti/bugatti-wide.jpg",
+            alt: "Divo"
+          },
+          name: "Divo",
+          body: "Specialist sourcing inquiry. Payment options confirmed individually.",
+          href: "/build-your-deal?car=Bugatti%20Divo",
+          ctaLabel: "Explore Divo"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/bugatti/bugatti-wide-2.jpg",
+            alt: "W16 Mistral"
+          },
+          name: "W16 Mistral",
+          body: "Specialist sourcing inquiry. Payment options confirmed individually.",
+          href: "/build-your-deal?car=Bugatti%20W16%20Mistral",
+          ctaLabel: "Explore W16 Mistral"
         }
       ]
     },
@@ -136,7 +161,7 @@ export const bugatti: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/hero.webp",
+            src: "/assets/cars-images/porsche/porsche-wide.jpg",
             alt: "Porsche"
           },
           name: "Porsche",
@@ -145,7 +170,7 @@ export const bugatti: MarquePage = {
         },
         {
           image: {
-            src: "/assets/urus.webp",
+            src: "/assets/cars-images/lamborghini/lamborghini-wide.jpg",
             alt: "Lamborghini"
           },
           name: "Lamborghini",
@@ -181,5 +206,5 @@ export const bugatti: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/bugatti/bugatti-side-lineart-2.svg"
   };

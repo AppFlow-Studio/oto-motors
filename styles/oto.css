@@ -1,16 +1,32 @@
 /* OTO Motors — green identity: brand lockup, live lead form, Places dropdown.
    Loaded last so it overrides the imported editorial system where needed. */
 
-/* The design blended the whole header with `mix-blend-mode:difference` for
-   legibility over hero imagery, but that shifts the emerald mark to maroon.
-   Render the header in true colours (green mark) and keep it legible on any
-   hero with a soft top scrim instead. */
+/* Transparent nav — no top scrim. Invert labels over the page; keep the
+   emerald mark out of the blend so it stays green. */
 .editorial header,
 .editorial > header,
 .narrative-page header {
   mix-blend-mode: normal !important;
-  background: linear-gradient(180deg, rgba(8, 12, 10, 0.62), rgba(8, 12, 10, 0)) !important;
-  color: #f3f2ec;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #fff;
+}
+.editorial header nav,
+.editorial header .nav-cta,
+.editorial header .menu-toggle,
+.editorial header .brand-word,
+.narrative-page header nav,
+.narrative-page header .nav-cta,
+.narrative-page header .menu-toggle,
+.narrative-page header .brand-word {
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.editorial header .brand-mark,
+.narrative-page header .brand-mark {
+  mix-blend-mode: normal;
+  color: var(--accent, #D5E5AD);
 }
 
 /* ---- Brand lockup (green wrench mark + OTO MOTORS wordmark) ---- */

@@ -8,6 +8,7 @@ import {
   SHOWROOM_MODELS,
   type ShowroomModel,
 } from "@/content/showroom";
+import { DirectionMark } from "@/components/ui/OtoAction";
 
 const BODY_TYPES = ["Coupe", "Sedan", "SUV"] as const;
 
@@ -221,7 +222,7 @@ export function ShowroomView() {
             <Link className="marque-link-card" href={link.href} key={link.href}>
               <div
                 aria-hidden="true"
-                className="line-study marque-link-draw"
+                className={`line-study marque-link-draw${"flip" in link && link.flip ? " is-flip" : ""}`}
                 data-line-art={link.lineArt}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -275,16 +276,13 @@ export function ShowroomView() {
                   <dd>Individually arranged</dd>
                 </div>
               </dl>
-              <Link className="text-link" href={brandHref(active)}>
-                Explore the marque
+              <Link className="oto-action" href={brandHref(active)}>
+                <DirectionMark />
+                <span className="oto-action-label">Explore the marque</span>
               </Link>
-              <Link className="button" href={inquiryHref(active)}>
-                <span className="direction-mark" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M4 12h15m-6-6 6 6-6 6" />
-                  </svg>
-                </span>
-                Inquire about this model
+              <Link className="oto-action" href={inquiryHref(active)}>
+                <DirectionMark />
+                <span className="oto-action-label">Inquire about this model</span>
               </Link>
               <p className="small">
                 Illustrative imagery. Your inquiry is reviewed and downloaded

@@ -1,35 +1,35 @@
-import type { Media, Video } from "@/content/payments";
+import type { Media } from "@/content/payments";
 
-/** Brand overlay chapter (word + inset). */
+/**
+ * Brand chapter image — leasing-style expand on scroll.
+ * No sticky background overlay; just the inset expanding in.
+ */
 export function MarqueLayer({
-  word,
-  back,
   inset,
-  drift,
 }: {
-  word: string;
-  back: Media;
+  word?: string;
+  back?: Media;
+  backVideo?: unknown;
+  backPattern?: unknown;
   inset: Media;
-  drift: string;
+  drift?: string;
 }) {
   return (
-    <section className="n-layer-track n-layer-overlay" id="main-content">
-      <div className="n-layer-back">
-        <div className="n-media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt={back.alt} decoding="async" loading="eager" src={back.src} />
-        </div>
-        <span aria-hidden="true" className="n-layer-word">
-          {word}
-        </span>
-      </div>
+    <section className="n-layer-track n-layer-lined" id="main-content">
       <div className="n-layer-content">
-        <figure className="n-layer-inset" data-drift={drift}>
-          <div className="n-media">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt={inset.alt} decoding="async" loading="eager" src={inset.src} />
-          </div>
-        </figure>
+        <div className="n-layer-expand-track" data-rise="">
+          <figure className="n-layer-inset" data-expand="">
+            <div className="n-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                alt={inset.alt}
+                decoding="async"
+                loading="eager"
+                src={inset.src}
+              />
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
   );

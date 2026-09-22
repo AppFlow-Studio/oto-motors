@@ -7,8 +7,8 @@ export const mclaren: MarquePage = {
     collageReverse: true,
     hero: {
       image: {
-        src: "/assets/mclaren-rear.webp",
-        alt: "McLaren Artura"
+        src: "/assets/cars-images/mclaren/mclaren.jpg",
+        alt: "McLaren — wide shot"
       },
       video: null,
       eyebrow: "OTO / MCLAREN",
@@ -19,7 +19,8 @@ export const mclaren: MarquePage = {
     },
     entrance: {
       ariaLabel: "McLaren line study",
-      lineArt: "/assets/drawing-car-svg.svg",
+      lineArt: "/assets/cars-images/mclaren/mclaren-side-lineart.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF MCLAREN",
       heading: "Closer to the drive.",
       body: "A low silhouette and a cockpit built around you. Explore the form, then tell us the model and specification you want to make your own."
@@ -27,12 +28,12 @@ export const mclaren: MarquePage = {
     layer: {
       word: "McLaren",
       back: {
-        src: "/assets/mclaren-detail.webp",
-        alt: "McLaren — close detail"
+        src: "/assets/cars-images/mclaren/mclaren-front.jpg",
+        alt: "McLaren — front"
       },
       inset: {
-        src: "/assets/mclaren-rear.webp",
-        alt: "McLaren — editorial film"
+        src: "/assets/cars-images/mclaren/mclaren-side-city.jpg",
+        alt: "McLaren — side city"
       },
       drift: "-28"
     },
@@ -55,15 +56,15 @@ export const mclaren: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/mclaren-rear.webp",
-            alt: "McLaren — exterior study"
+            src: "/assets/cars-images/mclaren/mclaren-front.jpg",
+            alt: "McLaren — front"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/mclaren-detail.webp",
-            alt: "McLaren — a closer perspective"
+            src: "/assets/cars-images/mclaren/mclaren-back-black.jpg",
+            alt: "McLaren — rear"
           },
           caption: "02 / THE FEELING"
         }
@@ -86,19 +87,19 @@ export const mclaren: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/mclaren-rear.webp",
-        alt: "McLaren Artura"
+        src: "/assets/cars-images/mclaren/mclaren-door-open-backshot.jpg",
+        alt: "McLaren — door open rear"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/mclaren/mclaren-side-lineart.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/mclaren/mclaren-back-lineart.svg",
         penMs: 18000
       }
     ],
@@ -109,7 +110,7 @@ export const mclaren: MarquePage = {
       models: [
         {
           image: {
-            src: "/assets/mclaren-rear.webp",
+            src: "/assets/cars-images/mclaren/mclaren-door-open-backshot.jpg",
             alt: "Artura"
           },
           name: "Artura",
@@ -126,6 +127,26 @@ export const mclaren: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=McLaren%20720S",
           ctaLabel: "Explore 720S"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/mclaren/mclaren.jpg",
+            alt: "765LT"
+          },
+          name: "765LT",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=McLaren%20765LT",
+          ctaLabel: "Explore 765LT"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/mclaren/mclaren-front.jpg",
+            alt: "GT"
+          },
+          name: "GT",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=McLaren%20GT",
+          ctaLabel: "Explore GT"
         }
       ]
     },
@@ -136,7 +157,7 @@ export const mclaren: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/maserati-front.webp",
+            src: "/assets/cars-images/maserati/maserati.jpg",
             alt: "Maserati"
           },
           name: "Maserati",
@@ -145,7 +166,7 @@ export const mclaren: MarquePage = {
         },
         {
           image: {
-            src: "/assets/ferrari-roma.webp",
+            src: "/assets/cars-images/ferrari/ferrari-wide.jpg",
             alt: "Ferrari"
           },
           name: "Ferrari",
@@ -181,5 +202,5 @@ export const mclaren: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/mclaren/mclaren-side-lineart.svg"
   };

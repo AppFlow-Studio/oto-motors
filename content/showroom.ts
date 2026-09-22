@@ -85,55 +85,62 @@ export const SHOWROOM_MODELS: ShowroomModel[] = [
 export const SHOWROOM_MARQUE_LINKS = [
   {
     href: "/porsche",
-    lineArt: "/assets/drawing-car-svg.svg",
-    label: "Porsche"
+    lineArt: "/assets/cars-images/porsche/porsche-lineart-side.svg",
+    label: "Porsche",
+    flip: true,
   },
   {
     href: "/lamborghini",
-    lineArt: "/assets/drawing-lambo-line-drawing.svg",
-    label: "Lamborghini"
+    lineArt: "/assets/cars-images/lamborghini/lambo-lineart-option-2.svg",
+    label: "Lamborghini",
+    flip: true,
   },
   {
     href: "/bentley",
-    lineArt: "/assets/drawing-car-svg.svg",
-    label: "Bentley"
+    lineArt: "/assets/cars-images/bentley/bentley-lineart-side.svg",
+    label: "Bentley",
   },
   {
     href: "/rolls-royce",
     lineArt: "/assets/drawing-car-svg.svg",
-    label: "Rolls-Royce"
+    label: "Rolls-Royce",
   },
   {
     href: "/aston-martin",
-    lineArt: "/assets/drawing-car-svg.svg",
-    label: "Aston Martin"
+    lineArt: "/assets/cars-images/aston-martin/aston-martin-side2-lineart.svg",
+    label: "Aston Martin",
   },
   {
     href: "/mclaren",
-    lineArt: "/assets/drawing-car-svg.svg",
-    label: "McLaren"
+    lineArt: "/assets/cars-images/mclaren/mclaren-side-lineart.svg",
+    label: "McLaren",
+    flip: true,
   },
   {
     href: "/maserati",
-    lineArt: "/assets/drawing-maserati-01.svg",
-    label: "Maserati"
+    lineArt: "/assets/cars-images/maserati/maserati-side-linedrawing.svg",
+    label: "Maserati",
+    flip: true,
   },
   {
     href: "/ferrari",
     lineArt: "/assets/drawing-ferrari.svg",
-    label: "Ferrari"
+    label: "Ferrari",
+    flip: true,
   },
   {
     href: "/range-rover",
     lineArt: "/assets/drawing-range-rover.svg",
-    label: "Range Rover"
+    label: "Range Rover",
+    flip: true,
   },
   {
     href: "/bugatti",
-    lineArt: "/assets/drawing-car-svg.svg",
-    label: "Bugatti"
-  }
-];
+    lineArt: "/assets/cars-images/bugatti/bugatti-side-lineart-2.svg",
+    label: "Bugatti",
+    flip: true,
+  },
+] as const;
 
 export const SHOWROOM_INTRO = {
   tag: "THE SHOWROOM",

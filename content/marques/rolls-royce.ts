@@ -4,15 +4,15 @@ export const rolls_royce: MarquePage = {
     slug: "rolls-royce",
     name: "Rolls-Royce",
     title: "Rolls-Royce at Oto | Oto Motors",
-    collageReverse: true,
+    collageReverse: false,
     hero: {
       image: {
-        src: "/assets/rolls-villa.webp",
-        alt: "Rolls-Royce Ghost"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
+        alt: "Rolls-Royce — nature wide"
       },
       video: {
         src: "/assets/rolls-arch.mp4",
-        poster: "/assets/rolls-villa.webp",
+        poster: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
         ariaLabel: "Rolls-Royce Ghost"
       },
       eyebrow: "OTO / ROLLS-ROYCE",
@@ -24,6 +24,7 @@ export const rolls_royce: MarquePage = {
     entrance: {
       ariaLabel: "Rolls-Royce line study",
       lineArt: "/assets/drawing-car-svg.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF ROLLS-ROYCE",
       heading: "The outside world can wait.",
       body: "A quiet cabin, an unhurried arrival. Tell us what your Rolls-Royce should feel like, from its first impression to its smallest detail."
@@ -31,12 +32,12 @@ export const rolls_royce: MarquePage = {
     layer: {
       word: "Rolls-Royce",
       back: {
-        src: "/assets/rolls-royce-detail.webp",
-        alt: "Rolls-Royce — close detail"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-closeup-highres.jpg",
+        alt: "Rolls-Royce — closeup"
       },
       inset: {
-        src: "/assets/rolls-villa.webp",
-        alt: "Rolls-Royce — editorial film"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
+        alt: "Rolls-Royce — nature wide"
       },
       drift: "-28"
     },
@@ -59,15 +60,15 @@ export const rolls_royce: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/rolls-villa.webp",
-            alt: "Rolls-Royce — exterior study"
+            src: "/assets/cars-images/rolls-royce/rr-interior-2.jpg",
+            alt: "Rolls-Royce — starlight interior"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/rolls-royce-detail.webp",
-            alt: "Rolls-Royce — a closer perspective"
+            src: "/assets/cars-images/rolls-royce/rr-interior-1.jpg",
+            alt: "Rolls-Royce — interior"
           },
           caption: "02 / THE FEELING"
         }
@@ -75,8 +76,8 @@ export const rolls_royce: MarquePage = {
     },
     scene: {
       image: {
-        src: "/assets/rolls-cullinan.webp",
-        alt: "Rolls-Royce Cullinan"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-closeup-highres.jpg",
+        alt: "Rolls-Royce — closeup"
       },
       caption: "",
       eyebrow: "THE CULLINAN",
@@ -90,19 +91,19 @@ export const rolls_royce: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/rolls-villa.webp",
-        alt: "Rolls-Royce Ghost"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-closeup-highres.jpg",
+        alt: "Rolls-Royce — closeup"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/rolls-royce/rolls-royce-sidelineart-2.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/rolls-royce/rolls-royce-top-lineart.svg",
         penMs: 18000
       }
     ],
@@ -113,7 +114,7 @@ export const rolls_royce: MarquePage = {
       models: [
         {
           image: {
-            src: "/assets/rolls-villa.webp",
+            src: "/assets/cars-images/rolls-royce/rolls-royce.jpg",
             alt: "Ghost"
           },
           name: "Ghost",
@@ -130,6 +131,26 @@ export const rolls_royce: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Rolls-Royce%20Cullinan",
           ctaLabel: "Explore Cullinan"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
+            alt: "Phantom"
+          },
+          name: "Phantom",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Rolls-Royce%20Phantom",
+          ctaLabel: "Explore Phantom"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/rolls-royce/rr-door-open.jpg",
+            alt: "Spectre"
+          },
+          name: "Spectre",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Rolls-Royce%20Spectre",
+          ctaLabel: "Explore Spectre"
         }
       ]
     },
@@ -140,7 +161,7 @@ export const rolls_royce: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/aston-lake.webp",
+            src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
             alt: "Aston Martin"
           },
           name: "Aston Martin",
@@ -149,7 +170,7 @@ export const rolls_royce: MarquePage = {
         },
         {
           image: {
-            src: "/assets/mclaren-rear.webp",
+            src: "/assets/cars-images/mclaren/mclaren.jpg",
             alt: "McLaren"
           },
           name: "McLaren",
@@ -185,5 +206,5 @@ export const rolls_royce: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/rolls-royce/rolls-royce-sidelineart-2.svg"
   };

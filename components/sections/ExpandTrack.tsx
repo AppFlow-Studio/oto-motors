@@ -1,4 +1,4 @@
-import type { Media, Video } from "@/content/payments";
+import type { Media } from "@/content/payments";
 
 /** Sticky expand image chapter. */
 export function ExpandTrack({

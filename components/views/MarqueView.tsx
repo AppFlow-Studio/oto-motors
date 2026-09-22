@@ -4,14 +4,13 @@ import {
   Collage,
   CopyBlock,
   DrawingAtelier,
-  ExpandTrack,
   Faq,
   Hero,
   MarqueEntrance,
   MarqueLayer,
+  ModelCarousel,
   OptionCards,
   Scene,
-  SilkQuote,
 } from "@/components/sections";
 
 export function MarqueView({ page }: { page: MarquePage }) {
@@ -20,6 +19,15 @@ export function MarqueView({ page }: { page: MarquePage }) {
     <>
       <main className="narrative" id="main">
         <Hero {...page.hero} video={page.hero.video} />
+        {page.models ? (
+          <ModelCarousel
+            brand={page.name}
+            eyebrow={page.models.eyebrow}
+            heading={page.models.heading}
+            body={page.models.body}
+            cards={page.models.models}
+          />
+        ) : null}
         <MarqueEntrance {...page.entrance} />
         <MarqueLayer {...page.layer} />
         {copyA ? <CopyBlock {...copyA} /> : null}
@@ -35,32 +43,8 @@ export function MarqueView({ page }: { page: MarquePage }) {
           heading={page.scene.heading}
           body={page.scene.body}
         />
-        <SilkQuote
-          text={page.quote.text}
-          cite={page.quote.cite}
-          eyebrow={page.quote.eyebrow}
-        />
-        <ExpandTrack
-          image={page.expand.image}
-          eyebrow={page.expand.eyebrow}
-          heading={page.expand.heading}
-        />
         {copyB ? <CopyBlock {...copyB} /> : null}
         {page.atelier.length ? <DrawingAtelier drawings={page.atelier} /> : null}
-        {page.models ? (
-          <OptionCards
-            eyebrow={page.models.eyebrow}
-            heading={page.models.heading}
-            body={page.models.body}
-            cards={page.models.models.map((m) => ({
-              image: m.image,
-              name: m.name,
-              body: m.body,
-              href: m.href,
-              ctaLabel: m.ctaLabel,
-            }))}
-          />
-        ) : null}
         <Faq {...page.faq} />
         {page.services ? (
           <OptionCards
