@@ -169,8 +169,12 @@ export function initNarrative() {
     drift.forEach((el) => {
       const r = el.getBoundingClientRect();
       if (r.bottom < 0 || r.top > h) return;
-      const p = clamp((h - r.top) / (h + r.height)) - 0.5;
-      el.style.setProperty('--drift', `${p * Number(el.dataset.drift)}px`);
+      // -1 when entering from below → +1 when leaving above
+      const raw = (h - r.top) / Math.max(h + r.height, 1);
+      const centered = clamp(raw) * 2 - 1;
+      const amount = Number(el.dataset.drift);
+      if (!Number.isFinite(amount)) return;
+      el.style.setProperty('--drift', `${(centered * amount).toFixed(1)}px`);
     });
   }
 

@@ -17,6 +17,10 @@ export type MarquePage = {
   entrance: {
     ariaLabel: string;
     lineArt: string;
+    /** Flip the drawing so the nose points toward the copy (left). */
+    faceText?: boolean;
+    /** Single large study beside the copy (Ferrari). */
+    layout?: "default" | "solo";
     eyebrow: string;
     heading: string;
     body: string;
@@ -24,6 +28,10 @@ export type MarquePage = {
   layer: {
     word: string;
     back: Media;
+    /** Optional film for the sticky background (replaces still while playing). */
+    backVideo?: Video | null;
+    /** Subtle organic line field instead of photo/video. */
+    backPattern?: "organic-lines" | null;
     inset: Media;
     drift: string;
   };

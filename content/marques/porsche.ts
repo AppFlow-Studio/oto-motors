@@ -7,8 +7,8 @@ export const porsche: MarquePage = {
     collageReverse: false,
     hero: {
       image: {
-        src: "/assets/hero.webp",
-        alt: "Porsche 911"
+        src: "/assets/cars-images/porsche/porsche-wide.jpg",
+        alt: "Porsche — wide shot"
       },
       video: null,
       eyebrow: "OTO / PORSCHE",
@@ -19,7 +19,8 @@ export const porsche: MarquePage = {
     },
     entrance: {
       ariaLabel: "Porsche line study",
-      lineArt: "/assets/drawing-car-svg.svg",
+      lineArt: "/assets/cars-images/porsche/porsche-lineart-side.svg",
+      faceText: true,
       eyebrow: "THE WORLD OF PORSCHE",
       heading: "A line you recognise. A feeling you return to.",
       body: "From the silhouette of a 911 to the everyday space of a Cayenne, begin with the way you want to drive."
@@ -27,12 +28,12 @@ export const porsche: MarquePage = {
     layer: {
       word: "Porsche",
       back: {
-        src: "/assets/porsche-detail.webp",
-        alt: "Porsche — close detail"
+        src: "/assets/cars-images/porsche/porsche-tire-closeup.jpg",
+        alt: "Porsche — tire closeup"
       },
       inset: {
-        src: "/assets/hero.webp",
-        alt: "Porsche — editorial film"
+        src: "/assets/cars-images/porsche/porsche-back.jpg",
+        alt: "Porsche — rear"
       },
       drift: "-28"
     },
@@ -55,15 +56,15 @@ export const porsche: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/hero.webp",
-            alt: "Porsche — exterior study"
+            src: "/assets/cars-images/porsche/porsche-tire-closeup.jpg",
+            alt: "Porsche — tire closeup"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/porsche-detail.webp",
-            alt: "Porsche — a closer perspective"
+            src: "/assets/cars-images/porsche/porsche-front.jpg",
+            alt: "Porsche — front"
           },
           caption: "02 / THE FEELING"
         }
@@ -86,19 +87,19 @@ export const porsche: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/hero.webp",
-        alt: "Porsche 911"
+        src: "/assets/cars-images/porsche/porsche-motion.jpg",
+        alt: "Porsche — motion"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/porsche/porsche-lineart-side.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/porsche/porsche-lineart-back.svg",
         penMs: 18000
       }
     ],
@@ -109,7 +110,7 @@ export const porsche: MarquePage = {
       models: [
         {
           image: {
-            src: "/assets/hero.webp",
+            src: "/assets/cars-images/porsche/porsche-closeup-city.jpg",
             alt: "911"
           },
           name: "911",
@@ -126,6 +127,26 @@ export const porsche: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Porsche%20Cayenne",
           ctaLabel: "Explore Cayenne"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/porsche/porsche-wide.jpg",
+            alt: "Taycan"
+          },
+          name: "Taycan",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Porsche%20Taycan",
+          ctaLabel: "Explore Taycan"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/porsche/porsche-front.jpg",
+            alt: "Panamera"
+          },
+          name: "Panamera",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Porsche%20Panamera",
+          ctaLabel: "Explore Panamera"
         }
       ]
     },
@@ -136,7 +157,7 @@ export const porsche: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/urus.webp",
+            src: "/assets/cars-images/lamborghini/lamborghini-wide.jpg",
             alt: "Lamborghini"
           },
           name: "Lamborghini",
@@ -145,7 +166,7 @@ export const porsche: MarquePage = {
         },
         {
           image: {
-            src: "/assets/bentley-detail.webp",
+            src: "/assets/cars-images/bentley/bentley-wide.jpg",
             alt: "Bentley"
           },
           name: "Bentley",
@@ -181,5 +202,5 @@ export const porsche: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/porsche/porsche-lineart-side.svg"
   };

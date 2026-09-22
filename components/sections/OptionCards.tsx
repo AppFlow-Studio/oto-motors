@@ -1,4 +1,4 @@
-import type { Media, Video } from "@/content/payments";
+import type { Media } from "@/content/payments";
 import { OtoAction } from "@/components/ui/OtoAction";
 
 /** Model / option card grid. */

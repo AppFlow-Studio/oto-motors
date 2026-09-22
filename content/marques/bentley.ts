@@ -7,8 +7,8 @@ export const bentley: MarquePage = {
     collageReverse: false,
     hero: {
       image: {
-        src: "/assets/bentley-detail.webp",
-        alt: "Bentley Continental GT"
+        src: "/assets/cars-images/bentley/bentley-wide.jpg",
+        alt: "Bentley — wide shot"
       },
       video: null,
       eyebrow: "OTO / BENTLEY",
@@ -19,7 +19,8 @@ export const bentley: MarquePage = {
     },
     entrance: {
       ariaLabel: "Bentley line study",
-      lineArt: "/assets/drawing-car-svg.svg",
+      lineArt: "/assets/cars-images/bentley/bentley-lineart-side.svg",
+      faceText: true,
       eyebrow: "THE WORLD OF BENTLEY",
       heading: "A world within.",
       body: "The finish of a surface. The colour of a cabin. The details you live with deserve as much attention as the view from outside."
@@ -27,12 +28,12 @@ export const bentley: MarquePage = {
     layer: {
       word: "Bentley",
       back: {
-        src: "/assets/bentley-interior.webp",
-        alt: "Bentley — close detail"
+        src: "/assets/cars-images/bentley/bentley-closeupfront.jpg",
+        alt: "Bentley — front closeup"
       },
       inset: {
-        src: "/assets/bentley-detail.webp",
-        alt: "Bentley — editorial film"
+        src: "/assets/cars-images/bentley/bentley-closeupfront.jpg",
+        alt: "Bentley — front closeup"
       },
       drift: "-28"
     },
@@ -55,15 +56,15 @@ export const bentley: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/bentley-detail.webp",
-            alt: "Bentley — exterior study"
+            src: "/assets/cars-images/bentley/bentley-half-shot.jpg",
+            alt: "Bentley — half shot"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
             src: "/assets/bentley-interior.webp",
-            alt: "Bentley — a closer perspective"
+            alt: "Bentley — interior"
           },
           caption: "02 / THE FEELING"
         }
@@ -86,19 +87,19 @@ export const bentley: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/bentley-detail.webp",
-        alt: "Bentley Continental GT"
+        src: "/assets/cars-images/bentley/bentley-half-shot.jpg",
+        alt: "Bentley — half shot"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/bentley/bentley-lineart-back.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/bentley/bentley-lineart-front.svg",
         penMs: 18000
       }
     ],
@@ -109,7 +110,7 @@ export const bentley: MarquePage = {
       models: [
         {
           image: {
-            src: "/assets/bentley-detail.webp",
+            src: "/assets/cars-images/bentley/bentley-closeupfront.jpg",
             alt: "Continental GT"
           },
           name: "Continental GT",
@@ -126,6 +127,26 @@ export const bentley: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Bentley%20Bentayga",
           ctaLabel: "Explore Bentayga"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/bentley/bentley-wide.jpg",
+            alt: "Flying Spur"
+          },
+          name: "Flying Spur",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Bentley%20Flying%20Spur",
+          ctaLabel: "Explore Flying Spur"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/bentley/bentley-half-shot.jpg",
+            alt: "Continental GTC"
+          },
+          name: "Continental GTC",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Bentley%20Continental%20GTC",
+          ctaLabel: "Explore Continental GTC"
         }
       ]
     },
@@ -136,7 +157,7 @@ export const bentley: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/rolls-villa.webp",
+            src: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
             alt: "Rolls-Royce"
           },
           name: "Rolls-Royce",
@@ -145,7 +166,7 @@ export const bentley: MarquePage = {
         },
         {
           image: {
-            src: "/assets/aston-lake.webp",
+            src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
             alt: "Aston Martin"
           },
           name: "Aston Martin",
@@ -181,5 +202,5 @@ export const bentley: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/bentley/bentley-lineart-side.svg"
   };

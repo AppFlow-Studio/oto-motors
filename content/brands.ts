@@ -31,8 +31,8 @@ export const BRANDS_PAGE: BrandsPage = {
   title: "The marques | Oto Motors",
   hero: {
     image: {
-      src: "/assets/aston-dbx.webp",
-      alt: "Aston Martin DBX707 overlooking a quiet mountain landscape"
+      src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
+      alt: "Aston Martin — wide nature shot"
     },
     kicker: "THE MARQUES / OTO",
     heading: "A matter of preference.",
@@ -48,8 +48,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/aston-martin",
       image: {
-        src: "/assets/aston-lake.webp",
-        alt: "Aston Martin — illustrative editorial vehicle study"
+        src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
+        alt: "Aston Martin — wide nature shot"
       },
       name: "Aston Martin",
       tagline: "The long way home."
@@ -57,8 +57,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/rolls-royce",
       image: {
-        src: "/assets/rolls-villa.webp",
-        alt: "Rolls-Royce — illustrative editorial vehicle study"
+        src: "/assets/cars-images/rolls-royce/rolls-royce-nature-wide.jpg",
+        alt: "Rolls-Royce — nature wide"
       },
       name: "Rolls-Royce",
       tagline: "A world of your own."
@@ -66,8 +66,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/porsche",
       image: {
-        src: "/assets/hero.webp",
-        alt: "Porsche — illustrative editorial vehicle study"
+        src: "/assets/cars-images/porsche/porsche-wide.jpg",
+        alt: "Porsche — wide shot"
       },
       name: "Porsche",
       tagline: "A line you recognise."
@@ -75,8 +75,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/bentley",
       image: {
-        src: "/assets/bentley-detail.webp",
-        alt: "Bentley — illustrative editorial vehicle study"
+        src: "/assets/cars-images/bentley/bentley-wide.jpg",
+        alt: "Bentley — wide shot"
       },
       name: "Bentley",
       tagline: "Time, beautifully spent."
@@ -84,8 +84,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/lamborghini",
       image: {
-        src: "/assets/urus.webp",
-        alt: "Lamborghini — illustrative editorial vehicle study"
+        src: "/assets/cars-images/lamborghini/urus-black.jpg",
+        alt: "Lamborghini Urus — black"
       },
       name: "Lamborghini",
       tagline: "An unmistakable presence."
@@ -93,8 +93,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/mclaren",
       image: {
-        src: "/assets/mclaren-720s.webp",
-        alt: "McLaren — illustrative editorial vehicle study"
+        src: "/assets/cars-images/mclaren/mclaren.jpg",
+        alt: "McLaren — wide shot"
       },
       name: "McLaren",
       tagline: "Closer to the drive."
@@ -102,8 +102,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/maserati",
       image: {
-        src: "/assets/maserati-front.webp",
-        alt: "Maserati — illustrative editorial vehicle study"
+        src: "/assets/cars-images/maserati/maserati.jpg",
+        alt: "Maserati — wide shot"
       },
       name: "Maserati",
       tagline: "An Italian point of view."
@@ -111,8 +111,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/ferrari",
       image: {
-        src: "/assets/ferrari-portofino.webp",
-        alt: "Ferrari — illustrative editorial vehicle study"
+        src: "/assets/cars-images/ferrari/ferrari-wide.jpg",
+        alt: "Ferrari — wide shot"
       },
       name: "Ferrari",
       tagline: "A different kind of occasion."
@@ -121,7 +121,7 @@ export const BRANDS_PAGE: BrandsPage = {
       href: "/range-rover",
       image: {
         src: "/assets/range-profile.webp",
-        alt: "Range Rover — illustrative editorial vehicle study"
+        alt: "Range Rover — profile"
       },
       name: "Range Rover",
       tagline: "A broader horizon."
@@ -129,8 +129,8 @@ export const BRANDS_PAGE: BrandsPage = {
     {
       href: "/bugatti",
       image: {
-        src: "/assets/bugatti-chiron.webp",
-        alt: "Bugatti — illustrative editorial vehicle study"
+        src: "/assets/cars-images/bugatti/bugatti-wide-2.jpg",
+        alt: "Bugatti — pair of gold models"
       },
       name: "Bugatti",
       tagline: "An individual conversation."

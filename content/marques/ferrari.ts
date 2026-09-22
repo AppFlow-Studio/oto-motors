@@ -7,8 +7,8 @@ export const ferrari: MarquePage = {
     collageReverse: true,
     hero: {
       image: {
-        src: "/assets/ferrari-roma.webp",
-        alt: "Ferrari Roma"
+        src: "/assets/cars-images/ferrari/ferrari-wide.jpg",
+        alt: "Ferrari — wide shot"
       },
       video: null,
       eyebrow: "OTO / FERRARI",
@@ -20,6 +20,8 @@ export const ferrari: MarquePage = {
     entrance: {
       ariaLabel: "Ferrari line study",
       lineArt: "/assets/drawing-ferrari.svg",
+      faceText: false,
+      layout: "solo",
       eyebrow: "THE WORLD OF FERRARI",
       heading: "A study in expression.",
       body: "The curve of the body. The relationship between colour and light. Explore road-going Ferrari models with an individual sourcing inquiry."
@@ -27,12 +29,12 @@ export const ferrari: MarquePage = {
     layer: {
       word: "Ferrari",
       back: {
-        src: "/assets/ferrari-roma.webp",
-        alt: "Ferrari — close detail"
+        src: "/assets/cars-images/ferrari/ferrari-closeup-2.jpg",
+        alt: "Ferrari — detail closeup"
       },
       inset: {
-        src: "/assets/ferrari-roma.webp",
-        alt: "Ferrari — editorial film"
+        src: "/assets/cars-images/ferrari/ferrari-back-city.jpg",
+        alt: "Ferrari — rear city shot"
       },
       drift: "-28"
     },
@@ -55,15 +57,15 @@ export const ferrari: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/ferrari-roma.webp",
-            alt: "Ferrari — exterior study"
+            src: "/assets/cars-images/ferrari/ferrari-closeup-2.jpg",
+            alt: "Ferrari — detail closeup"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/ferrari-roma.webp",
-            alt: "Ferrari — a closer perspective"
+            src: "/assets/cars-images/ferrari/ferrari-interior.jpg",
+            alt: "Ferrari — interior"
           },
           caption: "02 / THE FEELING"
         }
@@ -86,8 +88,8 @@ export const ferrari: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/ferrari-roma.webp",
-        alt: "Ferrari Roma"
+        src: "/assets/cars-images/ferrari/ferrari-closeup-2.jpg",
+        alt: "Ferrari — detail closeup"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
@@ -95,10 +97,6 @@ export const ferrari: MarquePage = {
     atelier: [
       {
         src: "/assets/drawing-ferrari.svg",
-        penMs: 18000
-      },
-      {
-        src: "/assets/drawing-maserati-03.svg",
         penMs: 18000
       }
     ],
@@ -126,6 +124,26 @@ export const ferrari: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Ferrari%20Portofino",
           ctaLabel: "Explore Portofino"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/ferrari/ferrari-wide.jpg",
+            alt: "296 GTB"
+          },
+          name: "296 GTB",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Ferrari%20296%20GTB",
+          ctaLabel: "Explore 296 GTB"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/ferrari/ferrari-back-city.jpg",
+            alt: "SF90 Stradale"
+          },
+          name: "SF90 Stradale",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Ferrari%20SF90%20Stradale",
+          ctaLabel: "Explore SF90 Stradale"
         }
       ]
     },
@@ -136,7 +154,7 @@ export const ferrari: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/range-profile.webp",
+            src: "/assets/cars-images/range-rover/range-rover-mountain-wideshot.jpg",
             alt: "Range Rover"
           },
           name: "Range Rover",
@@ -145,7 +163,7 @@ export const ferrari: MarquePage = {
         },
         {
           image: {
-            src: "/assets/bugatti-veyron.webp",
+            src: "/assets/cars-images/bugatti/bugatti-wide.jpg",
             alt: "Bugatti"
           },
           name: "Bugatti",
@@ -181,5 +199,5 @@ export const ferrari: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/drawing-ferrari.svg"
   };

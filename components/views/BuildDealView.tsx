@@ -8,7 +8,7 @@ export function BuildDealView() {
           <div className="deal-intro">
             <figure className="deal-portrait">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="A quiet Rolls-Royce rear cabin" src="/assets/rolls-royce-detail.webp" />
+              <img alt="Ferrari Scuderia badge on polished red bodywork" src="/assets/cars-images/ferrari/ferrari-closeup-1.jpg" />
               <figcaption>THE DETAILS ARE YOURS.</figcaption>
             </figure>
             <span className="section-tag">BUILD YOUR DEAL</span>

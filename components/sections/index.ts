@@ -7,6 +7,7 @@ export { SilkQuote } from "./SilkQuote";
 export { ExpandTrack } from "./ExpandTrack";
 export { Faq } from "./Faq";
 export { OptionCards } from "./OptionCards";
+export { ModelCarousel } from "./ModelCarousel";
 export { MarqueEntrance } from "./MarqueEntrance";
 export { Collage } from "./Collage";
 export { DrawingAtelier } from "./DrawingAtelier";

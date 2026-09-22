@@ -7,12 +7,12 @@ export const aston_martin: MarquePage = {
     collageReverse: false,
     hero: {
       image: {
-        src: "/assets/aston-lake.webp",
-        alt: "Aston Martin DB12"
+        src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
+        alt: "Aston Martin — wide nature shot"
       },
       video: {
-        src: "/assets/aston-drive.mp4",
-        poster: "/assets/aston-lake.webp",
+        src: "/assets/cars-images/aston-martin/aston-martin-video.mp4",
+        poster: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
         ariaLabel: "Aston Martin DB12"
       },
       eyebrow: "OTO / ASTON MARTIN",
@@ -23,7 +23,8 @@ export const aston_martin: MarquePage = {
     },
     entrance: {
       ariaLabel: "Aston Martin line study",
-      lineArt: "/assets/drawing-car-svg.svg",
+      lineArt: "/assets/cars-images/aston-martin/aston-martin-side2-lineart.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF ASTON MARTIN",
       heading: "Some journeys need no occasion.",
       body: "Open country. An empty stretch of road. The particular shade of green you had in mind. Begin with the feeling; we will work through the details."
@@ -31,12 +32,12 @@ export const aston_martin: MarquePage = {
     layer: {
       word: "Aston Martin",
       back: {
-        src: "/assets/aston-martin-detail.webp",
-        alt: "Aston Martin — close detail"
+        src: "/assets/cars-images/aston-martin/aston-martin.jpg",
+        alt: "Aston Martin — closer study"
       },
       inset: {
-        src: "/assets/aston-lake.webp",
-        alt: "Aston Martin — editorial film"
+        src: "/assets/cars-images/aston-martin/aston-martin.jpg",
+        alt: "Aston Martin — closer study"
       },
       drift: "-28"
     },
@@ -59,15 +60,15 @@ export const aston_martin: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/aston-lake.webp",
+            src: "/assets/aston-martin-detail.webp",
             alt: "Aston Martin — exterior study"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/aston-martin-detail.webp",
-            alt: "Aston Martin — a closer perspective"
+            src: "/assets/cars-images/aston-martin/aston-martin-back-nature.jpg",
+            alt: "Aston Martin — rear perspective"
           },
           caption: "02 / THE FEELING"
         }
@@ -90,19 +91,19 @@ export const aston_martin: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/aston-lake.webp",
-        alt: "Aston Martin DB12"
+        src: "/assets/cars-images/aston-martin/aston-martin-back-nature.jpg",
+        alt: "Aston Martin — rear in nature"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
     },
     atelier: [
       {
-        src: "/assets/drawing-car-svg.svg",
+        src: "/assets/cars-images/aston-martin/aston-martin-side2-lineart.svg",
         penMs: 18000
       },
       {
-        src: "/assets/drawing-maserati-03.svg",
+        src: "/assets/cars-images/aston-martin/aston-martin-top-lineart.svg",
         penMs: 18000
       }
     ],
@@ -130,6 +131,26 @@ export const aston_martin: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Aston%20Martin%20DBX707",
           ctaLabel: "Explore DBX707"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/aston-martin/aston-martin-black-wide-nature.jpg",
+            alt: "Vantage"
+          },
+          name: "Vantage",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Aston%20Martin%20Vantage",
+          ctaLabel: "Explore Vantage"
+        },
+        {
+          image: {
+            src: "/assets/aston-coast.webp",
+            alt: "DBS"
+          },
+          name: "DBS",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Aston%20Martin%20DBS",
+          ctaLabel: "Explore DBS"
         }
       ]
     },
@@ -140,7 +161,7 @@ export const aston_martin: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/mclaren-rear.webp",
+            src: "/assets/cars-images/mclaren/mclaren.jpg",
             alt: "McLaren"
           },
           name: "McLaren",
@@ -149,7 +170,7 @@ export const aston_martin: MarquePage = {
         },
         {
           image: {
-            src: "/assets/maserati-front.webp",
+            src: "/assets/cars-images/maserati/maserati.jpg",
             alt: "Maserati"
           },
           name: "Maserati",
@@ -185,5 +206,5 @@ export const aston_martin: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/cars-images/aston-martin/aston-martin-side2-lineart.svg"
   };

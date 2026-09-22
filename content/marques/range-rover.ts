@@ -8,7 +8,7 @@ export const range_rover: MarquePage = {
     hero: {
       image: {
         src: "/assets/range-profile.webp",
-        alt: "Range Rover Range Rover"
+        alt: "Range Rover — profile"
       },
       video: null,
       eyebrow: "OTO / RANGE ROVER",
@@ -20,6 +20,7 @@ export const range_rover: MarquePage = {
     entrance: {
       ariaLabel: "Range Rover line study",
       lineArt: "/assets/drawing-range-rover.svg",
+      faceText: false,
       eyebrow: "THE WORLD OF RANGE ROVER",
       heading: "Your own space, wherever you go.",
       body: "A composed profile and a sense of space. Start with your preferred model, then consider the finish, cabin and details that matter to you."
@@ -27,12 +28,12 @@ export const range_rover: MarquePage = {
     layer: {
       word: "Range Rover",
       back: {
-        src: "/assets/range-profile.webp",
-        alt: "Range Rover — close detail"
+        src: "/assets/cars-images/range-rover/range-rover-side.jpg",
+        alt: "Range Rover — side"
       },
       inset: {
-        src: "/assets/range-profile.webp",
-        alt: "Range Rover — editorial film"
+        src: "/assets/cars-images/range-rover/black-range-rover-sunsetshot.jpg",
+        alt: "Range Rover — sunset"
       },
       drift: "-28"
     },
@@ -55,15 +56,15 @@ export const range_rover: MarquePage = {
       figures: [
         {
           image: {
-            src: "/assets/range-profile.webp",
-            alt: "Range Rover — exterior study"
+            src: "/assets/cars-images/range-rover/range-rover-side.jpg",
+            alt: "Range Rover — side"
           },
           caption: "01 / THE FORM"
         },
         {
           image: {
-            src: "/assets/range-profile.webp",
-            alt: "Range Rover — a closer perspective"
+            src: "/assets/cars-images/range-rover/range-rover-interior.jpg",
+            alt: "Range Rover — interior"
           },
           caption: "02 / THE FEELING"
         }
@@ -71,8 +72,8 @@ export const range_rover: MarquePage = {
     },
     scene: {
       image: {
-        src: "/assets/range-sport.webp",
-        alt: "Range Rover Range Rover Sport"
+        src: "/assets/cars-images/range-rover/range-rover-mountain-wideshot.jpg",
+        alt: "Range Rover — mountain wide"
       },
       caption: "",
       eyebrow: "THE RANGE ROVER SPORT",
@@ -86,8 +87,8 @@ export const range_rover: MarquePage = {
     },
     expand: {
       image: {
-        src: "/assets/range-profile.webp",
-        alt: "Range Rover Range Rover"
+        src: "/assets/cars-images/range-rover/range-rover-wide.jpg",
+        alt: "Range Rover — wide"
       },
       eyebrow: "A WIDER PERSPECTIVE",
       heading: "Yours to imagine."
@@ -95,10 +96,6 @@ export const range_rover: MarquePage = {
     atelier: [
       {
         src: "/assets/drawing-range-rover.svg",
-        penMs: 18000
-      },
-      {
-        src: "/assets/drawing-maserati-03.svg",
         penMs: 18000
       }
     ],
@@ -109,7 +106,7 @@ export const range_rover: MarquePage = {
       models: [
         {
           image: {
-            src: "/assets/range-profile.webp",
+            src: "/assets/cars-images/range-rover/range-rover-wide.jpg",
             alt: "Range Rover"
           },
           name: "Range Rover",
@@ -126,6 +123,26 @@ export const range_rover: MarquePage = {
           body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
           href: "/build-your-deal?car=Range%20Rover%20Range%20Rover%20Sport",
           ctaLabel: "Explore Range Rover Sport"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/range-rover/range-rover-side.jpg",
+            alt: "Range Rover Velar"
+          },
+          name: "Range Rover Velar",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Range%20Rover%20Velar",
+          ctaLabel: "Explore Range Rover Velar"
+        },
+        {
+          image: {
+            src: "/assets/cars-images/range-rover/black-range-rover-sunsetshot.jpg",
+            alt: "Defender"
+          },
+          name: "Defender",
+          body: "Sourcing inquiry. Specification, availability and terms confirmed individually.",
+          href: "/build-your-deal?car=Land%20Rover%20Defender",
+          ctaLabel: "Explore Defender"
         }
       ]
     },
@@ -136,7 +153,7 @@ export const range_rover: MarquePage = {
       cards: [
         {
           image: {
-            src: "/assets/bugatti-veyron.webp",
+            src: "/assets/cars-images/bugatti/bugatti-wide.jpg",
             alt: "Bugatti"
           },
           name: "Bugatti",
@@ -145,7 +162,7 @@ export const range_rover: MarquePage = {
         },
         {
           image: {
-            src: "/assets/hero.webp",
+            src: "/assets/cars-images/porsche/porsche-wide.jpg",
             alt: "Porsche"
           },
           name: "Porsche",
@@ -181,5 +198,5 @@ export const range_rover: MarquePage = {
         }
       ]
     },
-    footerLineArt: "/assets/drawing-lambo-line-drawing.svg"
+    footerLineArt: "/assets/drawing-range-rover.svg"
   };
