@@ -157,15 +157,16 @@ export function initHomeMotion() {
   video.loop = true;
   video.playsInline = true;
 
-  function ensureSrc() {
-    if (!video.getAttribute("src") && video.dataset.src) {
-      video.src = video.dataset.src;
-      video.load();
-    }
-  }
+  // Below 768px the hero video never loads — poster only, per M05.
+  const isMobileViewport = () => innerWidth < 768;
+  const canLoadVideo = () =>
+    !reduce.matches && !navigator.connection?.saveData && !isMobileViewport();
 
   function playFilm() {
-    ensureSrc();
+    if (!canLoadVideo()) {
+      button.textContent = "Play film";
+      return;
+    }
     video
       .play()
       .then(() => {
@@ -197,13 +198,6 @@ export function initHomeMotion() {
     },
     { signal },
   );
-
-  ensureSrc();
-  if (!reduce.matches && !navigator.connection?.saveData) {
-    playFilm();
-  } else {
-    button.textContent = "Play film";
-  }
 
   button.addEventListener(
     "click",
@@ -249,13 +243,25 @@ export function initHomeMotion() {
     "visibilitychange",
     () => {
       if (document.hidden) video.pause();
-      else if (!reduce.matches) playFilm();
+      else if (canLoadVideo()) playFilm();
     },
     { signal },
   );
-  addEventListener("scroll", request, { passive: true, signal });
-  addEventListener("resize", request, { signal });
-  request();
+
+  // Defer video playback + scroll listeners until after the page has settled,
+  // so the hero film never competes with initial load / LCP.
+  function setupDeferred() {
+    if (!scope.signal.aborted) playFilm();
+    addEventListener("scroll", request, { passive: true, signal });
+    addEventListener("resize", request, { signal });
+    request();
+  }
+  const idleId =
+    window.requestIdleCallback?.(setupDeferred) ?? setTimeout(setupDeferred, 2000);
+  scope.onDispose(() => {
+    if (window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+    else clearTimeout(idleId);
+  });
 
   scope.onDispose(() => cancelAnimationFrame(raf));
   return scope.dispose;
