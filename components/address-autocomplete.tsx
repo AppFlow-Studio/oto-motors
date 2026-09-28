@@ -48,6 +48,7 @@ export function AddressAutocomplete({
   name = 'location',
   required,
   placeholder,
+  ariaLabel,
   className,
   wrapperClassName,
 }: {
@@ -55,6 +56,7 @@ export function AddressAutocomplete({
   name?: string
   required?: boolean
   placeholder?: string
+  ariaLabel?: string
   className?: string
   wrapperClassName?: string
 }) {
@@ -179,6 +181,7 @@ export function AddressAutocomplete({
         name={name}
         required={required}
         placeholder={placeholder}
+        aria-label={ariaLabel}
         className={className}
         value={value}
         onChange={onChange}

@@ -83,34 +83,15 @@ export function InquiryForm({ compact = false }: { compact?: boolean }) {
     return (
       <form id="inquiry-form" onSubmit={onSubmit}>
         <div className="form-grid">
-          <label className="full">
-            Your name
-            <input autoComplete="name" maxLength={120} name="name" placeholder="First and last name" required />
-          </label>
-          <label className="full">
-            The car you have in mind
-            <input id="car-input" maxLength={300} name="vehicle" placeholder="Make, model, and preferred specification" required />
-          </label>
-          <label>
-            Email
-            <input autoComplete="email" maxLength={180} name="email" placeholder="Email address" required type="email" />
-          </label>
-          <label>
-            Phone
-            <input autoComplete="tel" maxLength={40} name="phone" placeholder="Phone number" type="tel" />
-          </label>
-          <label className="full">
-            Delivery city &amp; state
-            <AddressAutocomplete name="location" placeholder="City, state" wrapperClassName="ac full-ac" />
-          </label>
-          <label className="full">
-            Nearest office
-            <select name="office" required defaultValue="">
-              <option value="" disabled>Select an office</option>
-              <option>New York</option>
-              <option>Florida</option>
-            </select>
-          </label>
+          <input aria-label="Your name" autoComplete="name" className="full" maxLength={120} name="name" placeholder="Your name" required />
+          <input aria-label="The car you have in mind" className="full" id="car-input" maxLength={300} name="vehicle" placeholder="The car you have in mind" required />
+          <input aria-label="Phone" autoComplete="tel" className="full" maxLength={40} name="phone" placeholder="Phone" type="tel" />
+          <AddressAutocomplete ariaLabel="Delivery city & state" name="location" placeholder="Delivery city & state" wrapperClassName="ac full" />
+          <select aria-label="Nearest office" className="full" name="office" required defaultValue="">
+            <option value="" disabled>Select an office</option>
+            <option>New York</option>
+            <option>Florida</option>
+          </select>
         </div>
         {honeypot}
         {error ? <p className="form-error" role="alert">{error}</p> : null}
@@ -119,7 +100,7 @@ export function InquiryForm({ compact = false }: { compact?: boolean }) {
           <span className="oto-action-label">{submitting ? "Sending…" : "Send to OTO"}</span>
         </button>
         <p className="small">
-          No credit application. No commitment. A name, a valid email, and the car are all we need to start.
+          No credit application. No commitment. A name and the car are all we need to start.
         </p>
       </form>
     );
@@ -131,59 +112,32 @@ export function InquiryForm({ compact = false }: { compact?: boolean }) {
         <legend>
           <span>01</span> The car
         </legend>
-        <label>
-          The car you have in mind
-          <input id="car-input" maxLength={300} name="vehicle" placeholder="Make, model, and preferred specification" required />
-        </label>
-        <label>
-          How would you like to pay?
-          <select name="structure" defaultValue="Not sure yet">
-            {PAYMENTS.map((p) => (
-              <option key={p}>{p}</option>
+        <input aria-label="The car you have in mind" id="car-input" maxLength={300} name="vehicle" placeholder="The car you have in mind" required />
+        <select aria-label="How would you like to pay?" name="structure" defaultValue="Not sure yet">
+          {PAYMENTS.map((p) => (
+            <option key={p}>{p}</option>
+          ))}
+        </select>
+        <div className="field-pair">
+          <AddressAutocomplete ariaLabel="Delivery city & state" name="location" placeholder="Delivery city & state" wrapperClassName="ac" />
+          <select aria-label="Preferred timeframe" name="timeframe" defaultValue="Flexible">
+            {TIMEFRAMES.map((t) => (
+              <option key={t}>{t}</option>
             ))}
           </select>
-        </label>
-        <div className="field-pair">
-          <label>
-            Delivery city &amp; state
-            <AddressAutocomplete name="location" placeholder="City, state" wrapperClassName="ac" />
-          </label>
-          <label>
-            Preferred timeframe
-            <select name="timeframe" defaultValue="Flexible">
-              {TIMEFRAMES.map((t) => (
-                <option key={t}>{t}</option>
-              ))}
-            </select>
-          </label>
         </div>
       </fieldset>
       <fieldset>
         <legend>
           <span>02</span> A few details
         </legend>
-        <label>
-          Your name
-          <input autoComplete="name" maxLength={120} name="name" placeholder="First and last name" required />
-        </label>
-        <div className="field-pair">
-          <label>
-            Email
-            <input autoComplete="email" maxLength={180} name="email" placeholder="Email address" required type="email" />
-          </label>
-          <label>
-            Phone
-            <input autoComplete="tel" maxLength={40} name="phone" placeholder="Phone number" type="tel" />
-          </label>
-        </div>
-        <label>
-          Nearest office
-          <select name="office" required defaultValue="">
-            <option value="" disabled>Select an office</option>
-            <option>New York</option>
-            <option>Florida</option>
-          </select>
-        </label>
+        <input aria-label="Your name" autoComplete="name" maxLength={120} name="name" placeholder="Your name" required />
+        <input aria-label="Phone" autoComplete="tel" maxLength={40} name="phone" placeholder="Phone" type="tel" />
+        <select aria-label="Nearest office" name="office" required defaultValue="">
+          <option value="" disabled>Select an office</option>
+          <option>New York</option>
+          <option>Florida</option>
+        </select>
       </fieldset>
       {honeypot}
       {error ? <p className="form-error" role="alert">{error}</p> : null}
