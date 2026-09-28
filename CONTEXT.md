@@ -79,6 +79,7 @@ Notion board (all tickets, "OTO — Build order" view): https://app.notion.com/p
 - **DEC-1 Q2** (pricing display rule) and **Q3** (menu version) — not yet answered, block M10 and M13 respectively.
 - No Figma/design file exists for OTO — build against the live site's current theme, per abubeckr Sep 28.
 - GitHub repo access: requested by Munis 21:44 Sep 28, pending confirmation.
+- **C-2 / M07 open question**: no interactive "office selector" exists anywhere in the codebase for the showroom page (`ShowroomModel` has no office/location field), so the ticket's "move the office selector into the sidebar" was interpreted as moving the existing static "NEW YORK / FLORIDA" text line, not building new filter functionality. Flagged in the ticket comment in case an actual selector was intended.
 
 ## Changelog
 
@@ -104,3 +105,11 @@ Notion board (all tickets, "OTO — Build order" view): https://app.notion.com/p
   - Verified: `aria-label` accessible names correct on all 7 fields × 2 form variants (script-checked, not assumed), zero email fields anywhere, visible focus ring on every field via keyboard tab, no focus-outline/field overlap at 375px or 1440px.
   - **Can't be marked Done**: the ticket's own last acceptance criterion is "merged together with Sardor's A-2, verified by a live test submission after deploy" — genuinely blocked until GitHub access lands and Sardor's A-2 branch exists. Posted full findings as a Notion comment; left status at In progress (this is a difference from M05 — that ticket's remaining gap was a pre-existing site issue outside scope; this one is a real coordination dependency the ticket itself requires before Done is accurate).
   - **Next**: still waiting on GitHub repo access from Temur. Once it lands: push both branches, agree merge order with Sardor, deploy, live-test the form submission, then flip A-1 to Done.
+- **2026-09-28** — **C-2 (M07, "Clean up the showroom sidebar") — in progress, Deepika sign-off pending.**
+  - Set Notion status → In progress. Branch: `site/C-2-showroom-sidebar-cleanup` (branched fresh off `munis-dev`, not stacked on A-1, since each ticket = its own branch/PR).
+  - `components/views/ShowroomView.tsx`: deleted the "Explore the cars..." intro paragraph; moved the static "NEW YORK / FLORIDA" line into `filter-body` as the first item (see open question above — no real selector existed to move); renamed "Reset filters ↺" → plain-text "Clear"; changed the accordion's +/× toggle to a dedicated chevron (⌄/⌃) so it's visually distinct from Clear — that rotating +/× was almost certainly what Abubeckr clicked expecting a clear action.
+  - **Caught and fixed a real regression before it shipped**: moving the office line to be the sidebar's first child silently broke the mobile `grid-column:1/-1` rule that targeted "Find a model" via `:first-child` (no longer first-child once office line was inserted). Found via computed-style check, not just eyeballing a screenshot — both elements now explicitly span full width on mobile again.
+  - Verified: Clear button live-tested (10 → 1 → 10 models), screenshotted and confirmed at 390/768/1280px, counter and Sort untouched.
+  - Posted findings + a 3-viewport comparison screenshot as a Notion comment, explicitly flagging the office-selector interpretation as something to confirm.
+  - **Can't be Done**: acceptance criteria explicitly requires Deepika's spacing sign-off — left status at In progress.
+  - **Next**: waiting on Deepika's review + confirmation on the office-selector interpretation, and still waiting on GitHub access to push any branch.
