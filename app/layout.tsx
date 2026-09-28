@@ -2,6 +2,8 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { SITE } from "@/lib/site";
 import { AutoDealerJsonLd } from "@/components/json-ld";
+import { SiteFooter, SiteHeader } from "@/components/chrome/SiteChrome";
+import { ScrollRestoration } from "@/components/chrome/ScrollRestoration";
 import "@/styles/styles.css";
 import "@/styles/editorial.css";
 import "@/styles/showroom.css";
@@ -44,9 +46,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin=""
         />
         <AutoDealerJsonLd />
+        {/* Must run before the browser's own restoration decision for this
+            load (B-2/B-3) - a useEffect runs too late to stop a reload from
+            jumping to a prior scroll position. scrollRestoration is sticky
+            per history entry, so setting it here on every load keeps it
+            'manual' for the next one too. <ScrollRestoration> (in body)
+            handles the back/forward half this disables. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "if('scrollRestoration' in history){history.scrollRestoration='manual'}",
+          }}
+        />
       </head>
       <body>
+        <SiteHeader />
         {children}
+        <SiteFooter />
+        <ScrollRestoration />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
