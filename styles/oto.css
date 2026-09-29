@@ -119,6 +119,12 @@
   color: var(--muted);
 }
 
+/* ---- Showroom filter: "Find a model" lost its <label> wrapper (A-1) ---- */
+.filter-body input#search { margin-bottom: 30px; }
+@media (max-width: 800px) {
+  .filter-body input#search { grid-column: 1 / -1; margin: 0; }
+}
+
 /* ---- Live lead form states ---- */
 .hp-field {
   position: absolute !important;
@@ -130,6 +136,26 @@
 }
 #inquiry-form .button { width: 100%; margin-top: 20px; }
 .editorial #inquiry-form .button { margin-top: 15px; }
+/* Fields lost their per-field spacing when the <label> wrapper (and its
+   margin-bottom) was removed for the label-less redesign (A-1). Restore the
+   same rhythm directly on the fields themselves, scoped to the full
+   (non-compact) form's fieldsets — the compact form spaces via .form-grid's
+   gap instead. */
+.editorial #inquiry-form fieldset > input,
+.editorial #inquiry-form fieldset > select,
+.editorial #inquiry-form fieldset > .field-pair {
+  margin-bottom: 30px;
+}
+.editorial #inquiry-form fieldset > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 700px) {
+  /* .field-pair collapses to one column here; its own children need the
+     same spacing the label-margin used to provide between them. */
+  .editorial #inquiry-form .field-pair > *:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
 .form-error {
   margin-top: 22px;
   padding: 14px 18px;

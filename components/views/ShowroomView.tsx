@@ -64,17 +64,15 @@ export function ShowroomView() {
               Refine your search <span aria-hidden="true">+</span>
             </summary>
             <div className="filter-body">
-              <label htmlFor="search">
-                Find a model
-                <input
-                  autoComplete="off"
-                  id="search"
-                  placeholder="Make or model"
-                  type="search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </label>
+              <input
+                aria-label="Find a model"
+                autoComplete="off"
+                id="search"
+                placeholder="Make or model"
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
               <label htmlFor="marque">
                 Marque
                 <select
