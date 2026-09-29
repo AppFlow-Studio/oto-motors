@@ -1,6 +1,15 @@
 /* OTO Motors — green identity: brand lockup, live lead form, Places dropdown.
    Loaded last so it overrides the imported editorial system where needed. */
 
+/* B-2/B-3: global `scroll-behavior:smooth` on <html> (styles.css) hijacked
+   Next's internal, supposed-to-be-instant route-transition scroll
+   calculations into a visible animation toward the wrong element — that's
+   what made brand pages land scrolled down instead of at the top. Our own
+   deliberate smooth-scrolls (car-select -> inquiry form, "Discover" links)
+   already pass `behavior: "smooth"` explicitly in JS, so they don't depend
+   on this. Restore native instant jumps for plain CSS/hash navigation. */
+html { scroll-behavior: auto; }
+
 /* Transparent nav — no top scrim. Invert labels over the page; keep the
    emerald mark out of the blend so it stays green. */
 .editorial header,
