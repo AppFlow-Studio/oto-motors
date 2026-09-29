@@ -61,9 +61,10 @@ export function ShowroomView() {
           <div className="sidebar-photo" />
           <details className="filter-panel" open>
             <summary>
-              Refine your search <span aria-hidden="true">+</span>
+              Refine your search <span aria-hidden="true" className="filter-chevron">⌄</span>
             </summary>
             <div className="filter-body">
+              <span className="filter-office">NEW YORK / FLORIDA</span>
               <input
                 aria-label="Find a model"
                 autoComplete="off"
@@ -102,7 +103,7 @@ export function ShowroomView() {
                 </select>
               </label>
               <button className="reset-filters" type="button" onClick={reset}>
-                Reset filters <span aria-hidden="true">↺</span>
+                Clear
               </button>
               <p>
                 Models to explore.
@@ -112,7 +113,6 @@ export function ShowroomView() {
             </div>
           </details>
           <div className="sidebar-bottom">
-            <span>NEW YORK / FLORIDA</span>
             <p>
               Your preference.
               <br />
@@ -125,11 +125,6 @@ export function ShowroomView() {
           <div className="catalog-intro">
             <span className="section-tag">{SHOWROOM_INTRO.tag}</span>
             <h1>{SHOWROOM_INTRO.heading}</h1>
-            <p>
-              Explore the cars. Tell us what you have in mind.
-              <br />
-              We’ll establish availability and structure the next steps.
-            </p>
           </div>
           <div className="catalog-toolbar">
             <p aria-live="polite" id="result-count" role="status">

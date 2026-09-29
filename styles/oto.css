@@ -121,8 +121,42 @@
 
 /* ---- Showroom filter: "Find a model" lost its <label> wrapper (A-1) ---- */
 .filter-body input#search { margin-bottom: 30px; }
+
+/* ---- Showroom sidebar cleanup (C-2) ---- */
+/* The office line moved from sidebar-bottom into filter-body as its first
+   item; give it the same quiet label treatment it had there. */
+.filter-office {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+/* Collapse toggle is its own chevron now, not a +/x that reads as "clear". */
+.filter-chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.filter-panel[open] summary .filter-chevron { transform: rotate(180deg); }
+/* Reset was an icon+label pair spread with justify-content; now it is a
+   single text control, so let it size to its content instead of stretching
+   full width with an empty gap on the right. */
+.reset-filters {
+  display: inline-flex !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
 @media (max-width: 800px) {
-  .filter-body input#search { grid-column: 1 / -1; margin: 0; }
+  /* The office line is now the first item in the 2-col mobile grid, and
+     "Find a model" is no longer :first-child (A-1 also removed its <label>
+     wrapper, so this targets the input directly) — both need to keep
+     spanning full width like "Find a model" did before this moved in front
+     of it. */
+  .filter-office,
+  .filter-body input#search {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
 }
 
 /* ---- Live lead form states ---- */
