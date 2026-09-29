@@ -12,6 +12,13 @@ type ModelCard = {
   ctaLabel: string;
 };
 
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 /** Horizontal model strip — same carousel pattern as the homepage showroom. */
 export function ModelCarousel({
   id = "models",
@@ -95,6 +102,15 @@ export function ModelCarousel({
               </a>
             </div>
             <p>{car.body}</p>
+            <a
+              className="button light oto-action car-contact"
+              data-brand-slug={slugify(brand)}
+              data-car-slug={slugify(car.name)}
+              href={car.href}
+            >
+              <DirectionMark />
+              <span className="oto-action-label">Contact Us</span>
+            </a>
           </article>
         ))}
       </div>

@@ -130,6 +130,18 @@
 }
 #inquiry-form .button { width: 100%; margin-top: 20px; }
 .editorial #inquiry-form .button { margin-top: 15px; }
+
+/* ---- Car card "Contact Us" (A-4) — deliberately loud, always visible,
+   no hover-to-reveal. Same treatment as the "Build your deal" hero CTA
+   (.button.light.oto-action), sized to fit a card instead of the hero. ---- */
+.car-contact {
+  width: 100%;
+  justify-content: center !important;
+  gap: 14px !important;
+  padding: 14px 20px !important;
+  margin-top: 14px;
+  font-size: 13px;
+}
 .form-error {
   margin-top: 22px;
   padding: 14px 18px;

@@ -192,6 +192,15 @@ export function ShowroomView() {
                     ? "Individual sourcing inquiry"
                     : "Availability on inquiry"}
                 </p>
+                <a
+                  className="button light oto-action car-contact"
+                  data-brand-slug={brandHref(m).slice(1)}
+                  data-car-slug={m.model.toLowerCase().replaceAll(" ", "-")}
+                  href={inquiryHref(m)}
+                >
+                  <DirectionMark />
+                  <span className="oto-action-label">Contact Us</span>
+                </a>
               </article>
             ))}
           </div>
