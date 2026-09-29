@@ -16,12 +16,15 @@ export function HomeHero() {
       <video
         aria-label={hero.video.ariaLabel}
         data-scrub=""
-        data-src={hero.video.src}
         muted
         playsInline
         poster={hero.video.poster}
-        preload="metadata"
-      />
+        preload="none"
+      >
+        {hero.video.sources.map((source) => (
+          <source key={source.src} src={source.src} type={source.type} />
+        ))}
+      </video>
       <div className="hero-shade" />
       <div className="hero-content">
         <h1>

@@ -7,7 +7,10 @@ export const HOME = {
       alt: "Pearl Aston Martin DB12 beside a calm lake and limestone architecture",
     },
     video: {
-      src: "/assets/homepage-hero.mp4",
+      sources: [
+        { src: "/assets/homepage-hero.webm", type: "video/webm" },
+        { src: "/assets/homepage-hero.mp4", type: "video/mp4" },
+      ],
       poster: "/assets/aston-coast.webp",
       ariaLabel: "Aston Martin coastal film",
     },
