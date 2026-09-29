@@ -238,6 +238,15 @@ export function HomeCars() {
               </a>
             </div>
             <p>{car.note}</p>
+            <a
+              className="button light oto-action car-contact"
+              data-brand-slug={car.href.slice(1)}
+              data-car-slug={car.name.toLowerCase().replaceAll(" ", "-")}
+              href="/build-your-deal"
+            >
+              <DirectionMark />
+              <span className="oto-action-label">Contact Us</span>
+            </a>
           </article>
         ))}
       </div>

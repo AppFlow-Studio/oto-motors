@@ -199,6 +199,18 @@ html { scroll-behavior: auto; }
     margin-bottom: 30px;
   }
 }
+
+/* ---- Car card "Contact Us" (A-4) — deliberately loud, always visible,
+   no hover-to-reveal. Same treatment as the "Build your deal" hero CTA
+   (.button.light.oto-action), sized to fit a card instead of the hero. ---- */
+.car-contact {
+  width: 100%;
+  justify-content: center !important;
+  gap: 14px !important;
+  padding: 14px 20px !important;
+  margin-top: 14px;
+  font-size: 13px;
+}
 .form-error {
   margin-top: 22px;
   padding: 14px 18px;
