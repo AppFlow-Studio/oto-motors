@@ -8,7 +8,7 @@ import { OFFICES } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Luxury & Exotic Car Leasing in Fort Lauderdale, FL",
   description:
-    "Independent luxury and exotic car brokerage serving Fort Lauderdale, Miami and Palm Beach. Sourcing, leasing, financing and Florida registration, delivered to you.",
+    "Luxury and exotic car leasing in Fort Lauderdale and South Florida. OTO Motors sources the car, structures the deal, and delivers it.",
   alternates: { canonical: "/fort-lauderdale/" },
   openGraph: { url: "/fort-lauderdale/" },
 };

@@ -4,6 +4,8 @@ import { BuildDealView } from "@/components/views/BuildDealView";
 
 export const metadata: Metadata = {
   title: "Build your deal",
+  description:
+    "Tell OTO Motors the car you want. We establish availability, structure the lease or finance, and come back with real numbers.",
   alternates: { canonical: "/build-your-deal/" },
   openGraph: { url: "/build-your-deal/" },
 };

@@ -8,7 +8,7 @@ import { OFFICES } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Luxury & Exotic Car Leasing in New York City",
   description:
-    "Independent luxury car brokerage at 200 Vesey Street, Battery Park City. Sourcing, leasing, financing and New York registration, delivered anywhere in Manhattan and the tri-state area.",
+    "Luxury and exotic car leasing in New York City. OTO Motors sources, structures and delivers — offices at 200 Vesey Street, open 7am–10pm.",
   alternates: { canonical: "/new-york/" },
   openGraph: { url: "/new-york/" },
 };

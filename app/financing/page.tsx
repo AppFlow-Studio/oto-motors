@@ -7,6 +7,8 @@ const page = PAYMENTS.financing;
 
 export const metadata: Metadata = {
   title: "Financing",
+  description:
+    "Finance a luxury or exotic car through OTO Motors. We structure the deal with our lender network and deliver in New York or Florida.",
   alternates: { canonical: "/financing/" },
   openGraph: { url: "/financing/" },
 };

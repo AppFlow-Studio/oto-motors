@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 export const metadata: Metadata = {
   title: "Guides — How Luxury Car Deals Actually Work",
   description:
-    "Plain explanations of how leasing, financing, allocation, out-of-state purchase and Section 179 actually work on luxury and exotic cars. No jargon, no pitch.",
+    "Straight answers on how luxury car leases, financing and tax deductions actually work — from the brokers who structure them.",
   alternates: { canonical: "/guides/" },
   openGraph: { url: "/guides/" },
 };

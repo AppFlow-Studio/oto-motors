@@ -4,6 +4,8 @@ import { BrandsView } from "@/components/views/BrandsView";
 
 export const metadata: Metadata = {
   title: "The marques",
+  description:
+    "Every marque OTO Motors brokers — Porsche, Ferrari, Lamborghini, Rolls-Royce, Bentley and more — for lease, finance or cash purchase.",
   alternates: { canonical: "/brands/" },
   openGraph: { url: "/brands/" },
 };

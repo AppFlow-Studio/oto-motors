@@ -7,6 +7,8 @@ const page = PAYMENTS.leasing;
 
 export const metadata: Metadata = {
   title: "Leasing",
+  description:
+    "How luxury car leasing works at OTO Motors: we source the exact car, structure the lease, and deliver it in New York or Florida.",
   alternates: { canonical: "/leasing/" },
   openGraph: { url: "/leasing/" },
 };

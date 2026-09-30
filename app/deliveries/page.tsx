@@ -4,6 +4,8 @@ import { DeliveriesView } from "@/components/views/DeliveriesView";
 
 export const metadata: Metadata = {
   title: "The manifest",
+  description:
+    "The OTO Motors delivery manifest — every completed car, its deal structure, destination, and days from inquiry to keys.",
   alternates: { canonical: "/deliveries/" },
   openGraph: { url: "/deliveries/" },
 };
