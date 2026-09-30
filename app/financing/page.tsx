@@ -7,6 +7,8 @@ const page = PAYMENTS.financing;
 
 export const metadata: Metadata = {
   title: "Financing",
+  alternates: { canonical: "/financing/" },
+  openGraph: { url: "/financing/" },
 };
 
 export default function FinancingPage() {

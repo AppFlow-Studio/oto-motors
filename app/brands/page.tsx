@@ -4,6 +4,8 @@ import { BrandsView } from "@/components/views/BrandsView";
 
 export const metadata: Metadata = {
   title: "The marques",
+  alternates: { canonical: "/brands/" },
+  openGraph: { url: "/brands/" },
 };
 
 export default function BrandsPage() {

@@ -7,6 +7,8 @@ const page = PAYMENTS["cash-purchase"];
 
 export const metadata: Metadata = {
   title: "Cash purchase",
+  alternates: { canonical: "/cash-purchase/" },
+  openGraph: { url: "/cash-purchase/" },
 };
 
 export default function CashPurchasePage() {

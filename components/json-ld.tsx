@@ -10,7 +10,7 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   )
 }
 
-type Office = typeof OFFICES.ny
+type Office = typeof OFFICES.ny | typeof OFFICES.fl
 
 function autoDealer(office: Office, name: string) {
   return {
@@ -19,7 +19,7 @@ function autoDealer(office: Office, name: string) {
     url: SITE.url,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: office.line1,
+      ...(office.streetAddress ? { streetAddress: office.streetAddress } : {}),
       addressLocality: office.locality,
       addressRegion: office.regionCode,
       postalCode: office.postal,

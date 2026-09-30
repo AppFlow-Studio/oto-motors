@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Independent luxury car brokerage at 200 Vesey Street, Battery Park City. Sourcing, leasing, financing and New York registration, delivered anywhere in Manhattan and the tri-state area.",
   alternates: { canonical: "/new-york/" },
+  openGraph: { url: "/new-york/" },
 };
 
 export default function Page() {

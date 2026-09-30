@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Guides — How Luxury Car Deals Actually Work",
   description:
     "Plain explanations of how leasing, financing, allocation, out-of-state purchase and Section 179 actually work on luxury and exotic cars. No jargon, no pitch.",
+  alternates: { canonical: "/guides/" },
+  openGraph: { url: "/guides/" },
 };
 
 const GUIDES = [

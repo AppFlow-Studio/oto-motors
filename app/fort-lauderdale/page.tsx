@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Independent luxury and exotic car brokerage serving Fort Lauderdale, Miami and Palm Beach. Sourcing, leasing, financing and Florida registration, delivered to you.",
   alternates: { canonical: "/fort-lauderdale/" },
+  openGraph: { url: "/fort-lauderdale/" },
 };
 
 export default function Page() {

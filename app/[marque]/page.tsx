@@ -13,7 +13,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { marque } = await params;
   const page = getMarque(marque);
-  return { title: page?.name ?? "Marque" };
+  return {
+    title: page?.name ?? "Marque",
+    alternates: { canonical: `/${marque}/` },
+    openGraph: { url: `/${marque}/` },
+  };
 }
 
 export default async function MarquePage({ params }: Props) {

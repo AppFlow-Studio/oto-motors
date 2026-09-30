@@ -4,6 +4,8 @@ import { ShowroomView } from "@/components/views/ShowroomView";
 
 export const metadata: Metadata = {
   title: "Showroom",
+  alternates: { canonical: "/showroom/" },
+  openGraph: { url: "/showroom/" },
 };
 
 export default function ShowroomPage() {

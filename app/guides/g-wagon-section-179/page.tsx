@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "G-Wagon Section 179 Deduction 2026: The Real Math",
   description:
     "What a G-Wagon actually deducts under Section 179 in 2026, where the $32,000 SUV cap applies, how bonus depreciation covers the rest, and what the business-use rule really requires.",
+  alternates: { canonical: "/guides/g-wagon-section-179/" },
+  openGraph: { url: "/guides/g-wagon-section-179/" },
 };
 
 const FAQ = [

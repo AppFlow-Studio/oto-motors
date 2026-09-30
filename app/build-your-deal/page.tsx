@@ -4,6 +4,8 @@ import { BuildDealView } from "@/components/views/BuildDealView";
 
 export const metadata: Metadata = {
   title: "Build your deal",
+  alternates: { canonical: "/build-your-deal/" },
+  openGraph: { url: "/build-your-deal/" },
 };
 
 export default function BuildYourDealPage() {

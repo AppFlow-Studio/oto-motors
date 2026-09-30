@@ -4,6 +4,8 @@ import { HomeView } from "@/components/views/HomeView";
 
 export const metadata: Metadata = {
   title: "Oto | At your leisure.",
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
 };
 
 export default function HomePage() {

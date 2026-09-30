@@ -4,6 +4,8 @@ import { DeliveriesView } from "@/components/views/DeliveriesView";
 
 export const metadata: Metadata = {
   title: "The manifest",
+  alternates: { canonical: "/deliveries/" },
+  openGraph: { url: "/deliveries/" },
 };
 
 export default function DeliveriesPage() {

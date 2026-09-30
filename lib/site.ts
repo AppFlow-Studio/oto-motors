@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'OTO Motors',
-  url: 'https://otomotors.example',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.exoticautoleasing.com',
   tagline: 'Independent luxury and exotic car brokerage',
 }
 
@@ -22,6 +22,8 @@ export const OFFICES = {
     locality: 'New York',
     regionCode: 'NY',
     geo: { lat: 40.7127, lng: -74.0155 },
+    // Real street address, safe for structured data.
+    streetAddress: '200 Vesey Street',
   },
   fl: {
     line1: 'Fort Lauderdale',
@@ -30,6 +32,10 @@ export const OFFICES = {
     locality: 'Fort Lauderdale',
     regionCode: 'FL',
     geo: { lat: 26.1224, lng: -80.1373 },
+    // No real street address yet (Temur hasn't answered — E-1/M01). Left
+    // undefined on purpose so the JSON-LD omits the field rather than
+    // asserting the city name as a street address to search engines.
+    streetAddress: undefined as string | undefined,
   },
 }
 
